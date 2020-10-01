@@ -1,6 +1,6 @@
 ### ✨ Hi, I'm Adrian ✨
 
-Four years of experience facilitating cutting-edge engineering solutions with a wide range of e-commerce application and technology skills. Proven ability to leverage full-stack expertise to build interactive and user-centered website designs to scale. Extensive expertise in large system architecture development and administration, as well as network design and configuration.
+Ambitious senior pursuing a Bachelor of Science in Computer Science and Engineering with extensive experience contributing to open source projects, hosting hackathons, hosting workshops, and solving real-world problems.
 
 - 🔭 I’m currently working on strenghtening my understanding of Microservice Architectures 
 - 🌱 I’m currently learning Kubernetes
