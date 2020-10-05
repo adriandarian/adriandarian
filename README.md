@@ -8,4 +8,5 @@ Ambitious senior pursuing a Bachelor of Science in Computer Science and Engineer
 - 📫 How to reach me: [hello@adarian.dev](mailto:hello@adarian.dev?subject=[GitHub]%20Source%20Han%20Sans)
 - ⚡ Fun fact: I love Paper and Metal Origami
 
-[![Adrian's github stats](https://github-readme-stats.vercel.app/api?username=adriandarian&show_icons=true&theme=radical&count_private=true&include_all_commits=true&hide=stars)](https://github.com/adriandarian/github-readme-stats)
+[![Adrian's github stats](https://github-readme-stats.vercel.app/api?username=adriandarian&show_icons=true&theme=radical&count_private=true&include_all_commits=true&hide=stars)](https://github.com/anuraghazra/github-readme-stats)
+<!-- [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=adriandarian&langs_count=10&layout=compact&theme=radical)](https://github.com/anuraghazra/github-readme-stats) -->
