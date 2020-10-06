@@ -2,7 +2,7 @@
 
 Ambitious senior pursuing a Bachelor of Science in Computer Science and Engineering with extensive experience contributing to open source projects, hosting hackathons, hosting workshops, and solving real-world problems.
 
-- 🔭 I’m currently working on strenghtening my understanding of Microservice Architectures 
+- 🔭 I’m currently working on strengthening my understanding of Microservice Architectures 
 - 🌱 I’m currently learning Kubernetes
 - 👯 I’m looking to collaborate on Open Source Projects
 - 📫 How to reach me: [hello@adarian.dev](mailto:hello@adarian.dev?subject=[GitHub]%20Source%20Han%20Sans)
