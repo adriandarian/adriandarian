@@ -1,61 +1,69 @@
 {
-    "name": "adriandarian",
-    "version": "0.1.0",
-    "private": false,
-    "description": "Adrian Darian's Personal Website",
-    "repository": "https://github.com/adriandarian/adriandarian.git",
-    "license": "MIT",
-    "author": "adriandarian <adarian@ucmerced.edu>",
-    "main": "src/index.tsx",
-    "browser": {
-        "path": "path-browserify"
-    },
-    "scripts": {
-        "build": "node build.production.js",
-        "predeploy": "yarn build",
-        "deploy": "gh-pages -d build -b gh-pages",
-        "serve": "node serve.js",
-        "format": "prettier \"**/*.{ts,tsx,css}\" --write"
-    },
-    "dependencies": {
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1",
-        "react-router": "^5.2.0"
-    },
-    "devDependencies": {
-        "@types/react": "^17.0.0",
-        "@types/react-dom": "^17.0.0",
-        "@types/react-router": "^5.1.8",
-        "esbuild": "^0.8.13",
-        "husky": ">=4",
-        "lint-staged": ">=10",
-        "prettier": "^2.2.0",
-        "typescript": "^4.1.2"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "*.--write": "prettier \"**/*.{ts,tsx,css}\" --write"
+  "name": "adriandarian",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Adrian Darian's Personal Website",
+  "repository": "https://github.com/adriandarian/adriandarian.git",
+  "license": "MIT",
+  "author": "adriandarian <adarian@ucmerced.edu>",
+  "main": "src/index.tsx",
+  "browser": {
+    "path": "path-browserify"
+  },
+  "scripts": {
+    "build": "node build.production.js",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build -b gh-pages",
+    "serve": "node serve.js",
+    "format": "prettier \"**/*.{ts,tsx,css}\" --write",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.8",
+    "@storybook/addon-actions": "^6.1.4",
+    "@storybook/addon-essentials": "^6.1.4",
+    "@storybook/addon-links": "^6.1.4",
+    "@storybook/react": "^6.1.4",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router": "^5.1.8",
+    "babel-loader": "^8.2.1",
+    "esbuild": "^0.8.13",
+    "husky": ">=4",
+    "lint-staged": ">=10",
+    "prettier": "^2.2.0",
+    "typescript": "^4.1.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.--write": "prettier \"**/*.{ts,tsx,css}\" --write"
+  }
 }
