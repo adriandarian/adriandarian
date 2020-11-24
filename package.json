@@ -11,10 +11,11 @@
         "path": "path-browserify"
     },
     "scripts": {
-        "build": "node build.js",
+        "build": "node build.production.js",
         "predeploy": "yarn build",
         "deploy": "gh-pages -d build -b gh-pages",
-        "serve": "node serve.js"
+        "serve": "node serve.js",
+        "format": "prettier \"**/*.{ts,tsx,css}\" --write"
     },
     "dependencies": {
         "react": "^17.0.1",
@@ -26,6 +27,35 @@
         "@types/react-dom": "^17.0.0",
         "@types/react-router": "^5.1.8",
         "esbuild": "^0.8.13",
+        "husky": ">=4",
+        "lint-staged": ">=10",
+        "prettier": "^2.2.0",
         "typescript": "^4.1.2"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.--write": "prettier \"**/*.{ts,tsx,css}\" --write"
     }
 }
