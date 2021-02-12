@@ -21,12 +21,14 @@
     <button onclick="vibrateOnRequest()">Vibrate</button>
     <button onclick="getLocation()">GeoLocation</button>
     <p id="demo"></p>
+    <div style="width:100%;height:0;padding-bottom:56%;position:relative;display:none" id="door-open"><iframe src="https://giphy.com/embed/1ZkJqAt2t0jMx2GjEA" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/spot-boston-dynamics-bostondynamics-1ZkJqAt2t0jMx2GjEA">via GIPHY</a></p>
     <script type="text/javascript">
       function showToast() {
         Toastify({
           text: "Door Open",
+          node: document.getElementById("door-open"),
           gravity: "top",
-          position: "right",
+          position: "center",
           duration: 5000,
           close: true,
           backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
