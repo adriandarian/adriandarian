@@ -75,9 +75,8 @@
       };
       
       function vibrateOnRequest() {
-        x.innerHTML = `${window.mobileAndTabletCheck()} ${navigator.vibrate} ${window.navigator.vibrate}`;
-        if (navigator.vibrate) { 
-          window.navigator.vibrate([100, 30, 100, 30, 100, 30, 200, 30, 200, 30, 200, 30, 100, 30, 100, 30, 100]); 
+        if (window.mobileAndTabletCheck()) { 
+          window.navigator.vibrate([500,110,500,110,450,110,200,110,170,40,450,110,200,110,170,40,500]);
         } 
       }
 
