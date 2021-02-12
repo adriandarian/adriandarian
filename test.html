@@ -46,10 +46,13 @@
       button {
         width: 100px;
         height: 100px;
+        background-color: #008080;
+        color: black;
       }
       
       p {
         font-size: 24px;
+        color: white;
       }
     </style>
   </head>
@@ -60,14 +63,8 @@
     <p id="demo"></p>
     <script>
       function vibrateOnRequest() {
-        var canVibrate = "vibrate" in navigator || "mozVibrate" in navigator;
-
-        if (canVibrate && !("vibrate" in navigator)) {
-          navigator.vibrate = navigator.mozVibrate;
-        }
-
-        if (window.mobileAndTabletCheck() || (/iPhone|iPod|iPad|Android|BlackBerry/).test(navigator.userAgent)) {
-          navigator.vibrate([1000]);
+        if (window.mobileAndTabletCheck()) {
+          window.navigator.vibrate([100,30,100,30,100,30,200,30,200,30,200,30,100,30,100,30,100]);
         }
       }
 
