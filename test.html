@@ -1,5 +1,24 @@
 <html>
   <head>
+    <style>
+      button {
+        width: 100px;
+        height: 100px;
+        background-color: #008080;
+        color: black;
+      }
+      
+      p {
+        font-size: 24px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="speakOnRequest()">Speak</button>
+    <button onclick="vibrateOnRequest()">Vibrate</button>
+    <button onclick="getLocation()">GeoLocation</button>
+    <p id="demo"></p>
     <script type="text/javascript">
       var x = document.getElementById("demo");
 
@@ -32,8 +51,7 @@
             break;
         }
       }
-    </script>
-    <script type="text/javascript">
+      
       window.mobileAndTabletCheck = function() {
         let check = false;
         (function(a) {
@@ -41,27 +59,7 @@
         })(navigator.userAgent || navigator.vendor || window.opera);
         return check;
       };
-    </script>
-    <style>
-      button {
-        width: 100px;
-        height: 100px;
-        background-color: #008080;
-        color: black;
-      }
       
-      p {
-        font-size: 24px;
-        color: white;
-      }
-    </style>
-  </head>
-  <body>
-    <button onclick="speakOnRequest()">Speak</button>
-    <button onclick="vibrateOnRequest()">Vibrate</button>
-    <button onclick="getLocation()">GeoLocation</button>
-    <p id="demo"></p>
-    <script>
       function vibrateOnRequest() {
         if (window.mobileAndTabletCheck()) {
           window.navigator.vibrate([100,30,100,30,100,30,200,30,200,30,200,30,100,30,100,30,100]);
