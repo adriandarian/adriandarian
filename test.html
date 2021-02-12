@@ -1,5 +1,6 @@
 <html>
   <head>
+    <script src="https://cdn.jsdelivr.net/npm/toastify@2.0.1/dist/build.min.js"></script>
     <style>
       button {
         width: 100px;
@@ -15,11 +16,24 @@
     </style>
   </head>
   <body>
+    <button onclick="showToast()">Toast</button>
     <button onclick="speakOnRequest()">Speak</button>
     <button onclick="vibrateOnRequest()">Vibrate</button>
     <button onclick="getLocation()">GeoLocation</button>
     <p id="demo"></p>
     <script type="text/javascript">
+      function showToast() {
+        Toastify({
+          text: "Door Open",
+          gravity: "top",
+          position: "right",
+          duration: 5000,
+          close: true,
+          backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+          stopOnFocus: true,
+        }).showToast();
+      }
+      
       var x = document.getElementById("demo");
 
       function getLocation() {
