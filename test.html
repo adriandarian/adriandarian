@@ -42,28 +42,41 @@
         return check;
       };
     </script>
+    <style>
+      button {
+        width: 100px;
+        height: 100px;
+      }
+      
+      p {
+        font-size: 24px;
+      }
+    </style>
   </head>
   <body>
-    <p>Click the button to get your coordinates.</p>
-
-    <button onclick="getLocation()">Try It</button>
-
+    <button onclick="speakOnRequest()">Speak</button>
+    <button onclick="vibrateOnRequest()">Vibrate</button>
+    <button onclick="getLocation()">GeoLocation</button>
     <p id="demo"></p>
     <script>
-      var canVibrate = "vibrate" in navigator || "mozVibrate" in navigator;
+      function vibrateOnRequest() {
+        var canVibrate = "vibrate" in navigator || "mozVibrate" in navigator;
 
-      if (canVibrate && !("vibrate" in navigator)) {
-        navigator.vibrate = navigator.mozVibrate;
+        if (canVibrate && !("vibrate" in navigator)) {
+          navigator.vibrate = navigator.mozVibrate;
+        }
+
+        if (window.mobileAndTabletCheck() || (/iPhone|iPod|iPad|Android|BlackBerry/).test(navigator.userAgent)) {
+          navigator.vibrate([1000]);
+        }
       }
 
-      if (window.mobileAndTabletCheck() || (/iPhone|iPod|iPad|Android|BlackBerry/).test(navigator.userAgent)) {
-        navigator.vibrate([1000]);
+      function speakOnRequest() {
+        var messageText = "Door Opened!";
+        var msg = new SpeechSynthesisUtterance();
+        msg.text = messageText;
+        window.speechSynthesis.speak(msg);
       }
-
-      var messageText = "Door Opened!";
-      var msg = new SpeechSynthesisUtterance();
-      msg.text = messageText;
-      window.speechSynthesis.speak(msg);
     </script>
   </body>
 </html>
