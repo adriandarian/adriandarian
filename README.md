@@ -16,7 +16,6 @@ I strongly believe in the transformative power of technology, and I'm committed 
 - 🌱 I’m currently studying to become a Polyglot
 - 👯 I’m looking to collaborate on Data Visualization Projects
 - ⚡ Fun fact: I love making Metal Origami
-- 📫 How to reach me: [hello@adarian.dev](mailto:hello@adarian.dev?subject=[GitHub]%20Source%20Han%20Sans)
 
 [![Adrian's github stats](https://github-readme-stats.vercel.app/api?username=adriandarian&show_icons=true&theme=radical&count_private=true&include_all_commits=true&hide=stars)](https://github.com/anuraghazra/github-readme-stats)
 <!-- [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=adriandarian&langs_count=10&layout=compact&theme=radical)](https://github.com/anuraghazra/github-readme-stats) -->
