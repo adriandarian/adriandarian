@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-28T03:14:57.211Z",
+  "method": "Chromium D3D11; mobile is viewport/DPR emulation plus 4× CPU throttling, not physical mobile hardware",
+  "samples": [
+    {
+      "configuration": "desktop",
+      "viewport": [1440, 1000],
+      "requestedDpr": 1,
+      "cpuThrottle": 1,
+      "world": "trail",
+      "entry": "start",
+      "background": "dbe2d6",
+      "geometries": 259,
+      "calls": 259,
+      "triangles": 17034,
+      "textures": 0,
+      "withinBudget": true,
+      "children": 2,
+      "frameMs": {
+        "median": 16.600000001490116,
+        "p95": 17.899999998509884
+      },
+      "renderer": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "dpr": 1,
+      "camera": {
+        "position": [0.013341699493254922, 4.2, 17],
+        "fov": 54,
+        "near": 0.01
+      },
+      "model": {
+        "calls": 36,
+        "triangles": 14016,
+        "withinBudget": true
+      }
+    },
+    {
+      "configuration": "desktop",
+      "viewport": [1440, 1000],
+      "requestedDpr": 1,
+      "cpuThrottle": 1,
+      "world": "circuit",
+      "entry": "board",
+      "background": "071e23",
+      "geometries": 47,
+      "calls": 24,
+      "triangles": 7476,
+      "textures": 0,
+      "withinBudget": true,
+      "children": 2,
+      "frameMs": {
+        "median": 16.699999999254942,
+        "p95": 18
+      },
+      "renderer": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "dpr": 1,
+      "camera": {
+        "position": [0, 1.7999999999999998, 10.000000000000004],
+        "fov": 58,
+        "near": 0.01
+      },
+      "model": {
+        "calls": 36,
+        "triangles": 14016,
+        "withinBudget": true
+      }
+    },
+    {
+      "configuration": "desktop",
+      "stage": "focus-shrink-arrival",
+      "elapsedMs": 5744,
+      "frameMs": {
+        "count": 344,
+        "median": 16.69999999999891,
+        "p95": 16.700000000000728,
+        "max": 33.29999999999927
+      },
+      "cpuThrottle": 1
+    },
+    {
+      "configuration": "mobile-class",
+      "viewport": [390, 844],
+      "requestedDpr": 2,
+      "cpuThrottle": 4,
+      "world": "trail",
+      "entry": "start",
+      "background": "dbe2d6",
+      "geometries": 135,
+      "calls": 135,
+      "triangles": 15422,
+      "textures": 0,
+      "withinBudget": true,
+      "children": 2,
+      "frameMs": {
+        "median": 16.600000001490116,
+        "p95": 18
+      },
+      "renderer": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "dpr": 1.5,
+      "camera": {
+        "position": [0.013341699493254922, 4.2, 17],
+        "fov": 54,
+        "near": 0.01
+      },
+      "model": {
+        "calls": 36,
+        "triangles": 14016,
+        "withinBudget": true
+      }
+    },
+    {
+      "configuration": "mobile-class",
+      "viewport": [390, 844],
+      "requestedDpr": 2,
+      "cpuThrottle": 4,
+      "world": "circuit",
+      "entry": "board",
+      "background": "071e23",
+      "geometries": 44,
+      "calls": 17,
+      "triangles": 5912,
+      "textures": 0,
+      "withinBudget": true,
+      "children": 2,
+      "frameMs": {
+        "median": 16.600000001490116,
+        "p95": 17.700000002980232
+      },
+      "renderer": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "dpr": 1.5,
+      "camera": {
+        "position": [0, 1.7999999999999998, 10.000000000000004],
+        "fov": 58,
+        "near": 0.01
+      },
+      "model": {
+        "calls": 36,
+        "triangles": 14016,
+        "withinBudget": true
+      }
+    },
+    {
+      "configuration": "mobile-class",
+      "stage": "focus-shrink-arrival",
+      "elapsedMs": 5844,
+      "frameMs": {
+        "count": 340,
+        "median": 16.69999999999709,
+        "p95": 16.799999999999272,
+        "max": 166.70000000000073
+      },
+      "cpuThrottle": 4
+    }
+  ]
+}

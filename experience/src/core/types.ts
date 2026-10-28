@@ -32,4 +32,10 @@ export type WorldDefinition = {
   transitions?: Partial<Record<ArtifactId, TransitionSpec>>;
   placements: Placement[];
 };
-export type Journey = { target: Point; phase: number; kind: "board" | "paper" };
+export type Journey = {
+  target: Point;
+  phase: number;
+  kind: "board" | "paper";
+  placement?: Placement;
+  start?: Pose;
+};

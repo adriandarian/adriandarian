@@ -47,44 +47,6 @@ export function Box({
     </mesh>
   );
 }
-export function Board() {
-  return (
-    <group>
-      <Box size={[1.65, 0.12, 1.1]} color="#22664c" />
-      <Box position={[0, 0.13, 0]} size={[0.5, 0.15, 0.45]} color="#202e2a" />
-      {[-0.56, -0.26, 0.04, 0.34, 0.64].map((x) => (
-        <Box
-          key={x}
-          position={[x, 0.1, -0.44]}
-          size={[0.08, 0.12, 0.1]}
-          color="#e7bf64"
-        />
-      ))}
-      {[-0.28, 0.26].map((z) => (
-        <Box
-          key={z}
-          position={[0.66, 0.18, z]}
-          size={[0.4, 0.3, 0.35]}
-          color="#bcc8bf"
-        />
-      ))}
-      {[-0.55, -0.3, -0.05].map((x) => (
-        <Box
-          key={x}
-          position={[x, 0.085, 0.33]}
-          size={[0.12, 0.03, 0.3]}
-          color="#dab875"
-        />
-      ))}
-      <Box
-        position={[-0.65, 0.12, 0.4]}
-        size={[0.08, 0.06, 0.07]}
-        color="#b4ffad"
-        emissive="#94ff7b"
-      />
-    </group>
-  );
-}
 export function Book() {
   return (
     <group>
@@ -115,7 +77,7 @@ export function Leaf() {
   );
 }
 export function ArtifactModel({ id }: { id: ArtifactId }) {
-  if (id === "pi") return <Board />;
+  if (id === "pi") return null; // ScaleBoard owns the persistent physical mesh.
   if (id === "notebook") return <Book />;
   if (id === "trail-thread") return <Leaf />;
   if (id === "circuit-thread")

@@ -1,3 +1,4 @@
+import { circuitPose } from "../pi/layout";
 import { placements } from "./artifacts";
 import type { WorldDefinition, WorldId } from "./types";
 export const pathX = (z: number) => Math.sin((z + 5) * 0.16) * 2.4;
@@ -18,7 +19,7 @@ export const worlds: Record<WorldId, WorldDefinition> = {
       };
     },
     load: () => import("../worlds/Trail"),
-    transitions: { pi: { kind: "board", duration: 1.9, cover: "#0d3434" } },
+    transitions: { pi: { kind: "board", duration: 4.2, cover: "#0d3434" } },
   },
   circuit: {
     id: "circuit",
@@ -27,11 +28,7 @@ export const worlds: Record<WorldId, WorldDefinition> = {
     color: "#071e23",
     entries: { board: 0, bookmark: 0.62 },
     placements: placements.circuit,
-    camera: (p) => ({
-      position: [Math.sin(p * 4) * 2, 5 - p * 1.2, 16 - p * 34],
-      target: [0, 0.8, 6 - p * 34],
-      fov: 58,
-    }),
+    camera: circuitPose,
     load: () => import("../worlds/Circuit"),
   },
   notebook: {

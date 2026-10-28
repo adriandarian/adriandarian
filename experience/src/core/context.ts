@@ -6,6 +6,9 @@ export type Runtime = {
   hover: (label: string | null) => void;
   progress: MutableRefObject<number>;
   journey: MutableRefObject<Journey | null>;
+  handoff: MutableRefObject<boolean>;
+  steer: MutableRefObject<number>;
+  inspection: MutableRefObject<boolean>;
   reducedMotion: boolean;
 };
 export const RuntimeContext = createContext<Runtime | null>(null);

@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import gsap from "gsap";
+import { JourneyLease } from "./core/journeyLease";
 import { artifacts } from "./core/artifacts";
 import {
   commitRoute,
@@ -118,6 +119,11 @@ export default function App() {
   const [progressDisplay, setProgressDisplay] = useState(entryProgress);
   const progress = useRef(entryProgress);
   const journey = useRef<Journey | null>(null);
+  const lease = useRef(new JourneyLease());
+  const handoff = useRef(false);
+  const steer = useRef(0);
+  const inspection = useRef(false);
+  const [inspecting, setInspecting] = useState(false);
   const tween = useRef<gsap.core.Timeline | null>(null);
   const veil = useRef<HTMLDivElement>(null);
   const sceneArea = useRef<HTMLDivElement>(null);
@@ -128,6 +134,11 @@ export default function App() {
   const touchGesture = useRef({ y: 0, moved: false });
 
   const cancel = useCallback(() => {
+    lease.current.cancel();
+    handoff.current = false;
+    inspection.current = false;
+    setInspecting(false);
+    delete document.documentElement.dataset.journeyPhase;
     tween.current?.kill();
     tween.current = null;
     journey.current = null;
@@ -141,8 +152,12 @@ export default function App() {
   }, []);
   useEffect(() => {
     const sync = () => {
+      const carrying = handoff.current;
       cancel();
       const next = parseRoute(location.hash);
+      handoff.current =
+        carrying && next.world === "circuit" && next.entry === "board";
+      steer.current = 0;
       progress.current = worlds[next.world].entries[next.entry] ?? 0;
       setProgressDisplay(progress.current);
       setRoute(next);
@@ -183,11 +198,18 @@ export default function App() {
 
   const step = useCallback(
     (amount: number) => {
-      if (busy || panel || map) return;
+      if (busy || panel || map || inspection.current) return;
       progress.current = Math.max(0, Math.min(1, progress.current + amount));
       setProgressDisplay(progress.current);
     },
     [busy, panel, map],
+  );
+  const branch = useCallback(
+    (direction: number) => {
+      if (busy || panel || map || route.world !== "circuit") return;
+      steer.current = Math.max(-6, Math.min(6, steer.current + direction * 2));
+    },
+    [busy, panel, map, route.world],
   );
   useEffect(() => {
     const surface = sceneArea.current;
@@ -241,6 +263,10 @@ export default function App() {
         )
       )
         return;
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        e.preventDefault();
+        branch(e.key === "ArrowLeft" ? -1 : 1);
+      }
       if (
         ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End"].includes(
           e.key,
@@ -260,11 +286,11 @@ export default function App() {
     };
     window.addEventListener("keydown", key);
     return () => window.removeEventListener("keydown", key);
-  }, [step, cancel]);
+  }, [step, cancel, branch]);
 
   const activate = useCallback(
     (id: ArtifactId) => {
-      if (busy) return;
+      if (busy || lease.current.running) return;
       const next = destination(route.world, id);
       if (!next) {
         if (id === "cafe" || id === "signal") setPanel(id);
@@ -276,6 +302,7 @@ export default function App() {
       }
       const item = world.placements.find((p) => p.id === id);
       if (!item || !veil.current) return;
+      const token = lease.current.begin();
       setBusy(true);
       setHover(null);
       const transition = transitionFor(world, id);
@@ -283,50 +310,56 @@ export default function App() {
         target: item.position,
         phase: 0,
         kind: transition.kind,
+        placement: item,
       };
       veil.current.style.background = transition.cover;
       veil.current.style.pointerEvents = "auto";
       const destinationModule = worlds[next.world].load();
-      // Commit exactly once at the covered boundary. Route synchronization kills
-      // this timeline before a separate emergence tween is installed.
+      // Load and animate independently; both must finish under the same lease.
+      // Board travel never uses the DOM veil. Its final pose is the exact
+      // coordinate-scaled entry of the enlarged board in Circuit World.
       const tl = gsap.timeline();
       tween.current = tl;
+      let loaded = false,
+        arrived = false;
+      const finish = () => {
+        if (!loaded || !arrived || !lease.current.owns(token)) return;
+        handoff.current = transition.kind === "board";
+        commitRoute(next);
+        if (transition.kind !== "board" && veil.current) {
+          veil.current.style.opacity = "1";
+          tween.current = gsap.timeline().to(veil.current, {
+            opacity: 0,
+            duration: 0.65,
+            onComplete: () => {
+              if (veil.current) veil.current.style.pointerEvents = "none";
+              tween.current = null;
+            },
+          });
+        }
+      };
       tl.to(journey.current, {
         phase: 1,
         duration: transition.duration,
-        ease: "power2.inOut",
-      })
-        .to(veil.current, { opacity: 1, duration: 0.22 }, "-=0.22")
-        .call(() => {
-          void destinationModule
-            .then(() => {
-              if (tween.current !== tl || !journey.current) return;
-              commitRoute(next);
-              if (veil.current) {
-                veil.current.style.opacity = "1";
-                tween.current = gsap
-                  .timeline({
-                    onComplete: () => {
-                      tween.current = null;
-                    },
-                  })
-                  .to(veil.current, {
-                    opacity: 0,
-                    duration: 0.65,
-                    onComplete: () => {
-                      if (veil.current)
-                        veil.current.style.pointerEvents = "none";
-                    },
-                  });
-              }
-            })
-            .catch(() => {
-              if (tween.current === tl) {
-                cancel();
-                setFailed(true);
-                commitRoute(next);
-              }
-            });
+        ease: transition.kind === "board" ? "none" : "power2.inOut",
+      });
+      if (transition.kind !== "board")
+        tl.to(veil.current, { opacity: 1, duration: 0.22 }, "-=.22");
+      tl.call(() => {
+        arrived = true;
+        finish();
+      });
+      void destinationModule
+        .then(() => {
+          loaded = true;
+          finish();
+        })
+        .catch(() => {
+          if (lease.current.owns(token)) {
+            cancel();
+            setFailed(true);
+            commitRoute(next);
+          }
         });
     },
     [busy, route.world, world, reducedMotion, failed, cancel],
@@ -368,6 +401,7 @@ export default function App() {
       className={`universe ${route.world}`}
       data-world={route.world}
       data-busy={busy}
+      data-inspecting={inspecting}
     >
       <a
         className="skip"
@@ -411,6 +445,9 @@ export default function App() {
                   hover: setHover,
                   progress,
                   journey,
+                  handoff,
+                  steer,
+                  inspection,
                   reducedMotion,
                 }}
                 fallback={fallback}
@@ -515,7 +552,7 @@ export default function App() {
         <div className="movement">
           <button
             aria-label="Move backward"
-            disabled={busy || progressDisplay <= 0}
+            disabled={busy || inspecting || progressDisplay <= 0}
             onClick={() => step(-0.09)}
           >
             ↑
@@ -528,7 +565,7 @@ export default function App() {
           </span>
           <button
             aria-label="Move forward"
-            disabled={busy || progressDisplay >= 1}
+            disabled={busy || inspecting || progressDisplay >= 1}
             onClick={() => step(0.09)}
           >
             ↓
@@ -540,6 +577,47 @@ export default function App() {
           PHASE 01 / PROTOTYPE
         </span>
       </footer>
+      {route.world === "trail" && (
+        <div className="pi-inspection">
+          <button
+            disabled={busy}
+            onClick={() => {
+              inspection.current = !inspection.current;
+              setInspecting(inspection.current);
+            }}
+          >
+            {inspecting ? "Leave inspection" : "Inspect the Raspberry Pi"}{" "}
+            <span aria-hidden="true">↗</span>
+          </button>
+          {inspecting && (
+            <>
+              <p>Move your pointer around the board.</p>
+              <button disabled={busy} onClick={() => activate("pi")}>
+                Enter the circuitry ↘
+              </button>
+            </>
+          )}
+        </div>
+      )}
+      {route.world === "circuit" && (
+        <div className="branch-controls" aria-label="Explore circuit branches">
+          <button
+            aria-label="Explore left branch"
+            disabled={busy}
+            onClick={() => branch(-1)}
+          >
+            ←
+          </button>
+          <span>EXPLORE THE TRACES</span>
+          <button
+            aria-label="Explore right branch"
+            disabled={busy}
+            onClick={() => branch(1)}
+          >
+            →
+          </button>
+        </div>
+      )}
       <details className="discoveries" id="discoveries" ref={discoveriesRef}>
         <summary>
           Objects nearby <span>＋</span>
