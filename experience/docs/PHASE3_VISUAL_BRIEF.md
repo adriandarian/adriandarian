@@ -1,6 +1,6 @@
 # Phase 3 visual design brief
 
-Status: Trace Canyon concept approved; arrival/junction/laboratory relationship conceptually approved. Notebook behavior approved in principle pending visual inspection. Camera pacing and sightlines need animatic review. PCB mapping is required before material/lighting development. Phase 3A implementation is not yet approved.
+Status: Overall composition approved at f96b3db, subject to focused notebook-reveal and PCB-mapping reconciliation. The [v2 study](phase3a/reconciled/README.md) now uses the actual production PiBoard geometry and a multipoint lateral visibility sweep. Its updated composition and explicitly attached workshop need visual review before material/lighting development. Phase 3A implementation is not yet approved.
 Baseline: Phase 2 squash merge `65c2acf`; security cleanup squash merge `33c57c3`.
 
 ## The question
@@ -83,4 +83,4 @@ After approval, implement one bounded 3A lighting/composition study before sprea
 
 The animatic demonstrates independent choices, not a mandatory visitor sequence. The primary trace must lead directly to the laboratory without requiring notebook discovery. The connector route should reveal the notebook through a useful interval of lateral motion, not one exact camera coordinate. Returning to the junction demonstrates a memorable fixed landmark.
 
-Remaining approval gates: inspect the actual animatic for camera pacing, continuity and gradual reveals; complete mapping to the existing PCB geometry; then develop material, lighting and atmosphere targets. Conceptual approval is not final visual sign-off or permission to implement Phase 3A. 3B and 3C remain separate creative milestones.
+The original animatic is historical cinematography evidence. The focused v2 reconciliation now supplies the PCB mapping, updated frames, multi-position notebook sweep and route proposals. Remaining approval gates: review the mapped composition (including the change in handedness at the actual entry), accept or revise the attached workshop, and confirm the reveal before developing material, lighting and atmosphere targets. A future navigation implementation must still make the proposed routes reachable. No Phase 3A implementation is authorized. 3B and 3C remain separate creative milestones.

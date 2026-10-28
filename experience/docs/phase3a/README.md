@@ -1,5 +1,7 @@
 # Trace Canyon: composition approval package
 
+**Latest revision: [PCB reconciliation v2](reconciled/README.md).** It renders the unchanged production board at its actual circuit transform, widens and samples the notebook reveal, and provides updated A/B/C frames. The original maquette and video below remain historical; they are not the latest PCB-aligned layout.
+
 Design-only shared 3D maquette. Original custom geometry; no external models, textures or generated image backgrounds. This package changes no application scene or runtime dependencies. All three targets are real renders of the same fixed geometry. Only camera pose and the trace pulse change. Annotations are review overlays, not proposed persistent interface labels.
 
 - [A: arrival](frame-A.png): narrow foreground, main trace, monumental processor left, GPIO forest right, warm workshop beyond.
@@ -16,4 +18,4 @@ Reproduce from `experience/` with `node docs/phase3a/render-study.mjs`. Uses exi
 
 The overall Trace Canyon concept and arrival/junction/laboratory relationship are conceptually approved. Concealed notebook behavior is approved in principle, pending inspection of the actual recording. Camera pacing and sightlines still require visual sign-off. This recording is a cinematography study, not a prescribed visitor sequence: the main trace must reach the laboratory directly, and lateral curiosity may lead to the notebook independently. Returning to the junction demonstrates the shared layout; it is not a required itinerary.
 
-Before material or lighting development, map every feature to an existing PCB component, trace or deliberately attached structure. The current maquette coordinates are not that mapping. Validate that the notebook reveal works across a useful movement interval, rather than only at pose B. Then review materials, lighting and atmosphere as a separate pass. Phase 3A implementation is not yet approved. Approving this spatial study does not approve an expensive effect stack or waive the cold-entry GPU performance review. 3B and 3C remain separate milestones.
+The original maquette coordinates above are not PCB coordinates. The [v2 reconciliation](reconciled/README.md) supplies that mapping using the actual board component and samples the reveal over a useful movement interval. Review its revised frames and deliberate attachments before materials and lighting. Phase 3A implementation is not yet approved. Approving this spatial study does not approve an expensive effect stack or waive the cold-entry GPU performance review. 3B and 3C remain separate milestones.

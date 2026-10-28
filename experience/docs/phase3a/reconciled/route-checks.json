@@ -1,0 +1,168 @@
+{
+  "main": {
+    "method": "centerline segment rays at camera height 2.6; not swept-volume collision certification",
+    "length": 43,
+    "segments": [
+      {
+        "from": [
+          0,
+          2.6,
+          10
+        ],
+        "to": [
+          0,
+          2.6,
+          -11
+        ],
+        "length": 21,
+        "blocked": false
+      },
+      {
+        "from": [
+          0,
+          2.6,
+          -11
+        ],
+        "to": [
+          4,
+          2.6,
+          -11
+        ],
+        "length": 4,
+        "blocked": false
+      },
+      {
+        "from": [
+          4,
+          2.6,
+          -11
+        ],
+        "to": [
+          4,
+          2.6,
+          -7
+        ],
+        "length": 4,
+        "blocked": false
+      },
+      {
+        "from": [
+          4,
+          2.6,
+          -7
+        ],
+        "to": [
+          16,
+          2.6,
+          -7
+        ],
+        "length": 12,
+        "blocked": false
+      },
+      {
+        "from": [
+          16,
+          2.6,
+          -7
+        ],
+        "to": [
+          16,
+          2.6,
+          -5
+        ],
+        "length": 2,
+        "blocked": false
+      }
+    ]
+  },
+  "optionalNotebook": {
+    "method": "centerline segment rays at camera height 2.6; not swept-volume collision certification",
+    "length": 167.63014581273467,
+    "segments": [
+      {
+        "from": [
+          4,
+          2.6,
+          -11
+        ],
+        "to": [
+          12,
+          2.6,
+          -4
+        ],
+        "length": 10.63014581273465,
+        "blocked": false
+      },
+      {
+        "from": [
+          12,
+          2.6,
+          -4
+        ],
+        "to": [
+          69,
+          2.6,
+          -4
+        ],
+        "length": 57,
+        "blocked": false
+      },
+      {
+        "from": [
+          69,
+          2.6,
+          -4
+        ],
+        "to": [
+          69,
+          2.6,
+          27
+        ],
+        "length": 31,
+        "blocked": false
+      },
+      {
+        "from": [
+          69,
+          2.6,
+          27
+        ],
+        "to": [
+          98,
+          2.6,
+          27
+        ],
+        "length": 29,
+        "blocked": false
+      },
+      {
+        "from": [
+          98,
+          2.6,
+          27
+        ],
+        "to": [
+          98,
+          2.6,
+          -5
+        ],
+        "length": 32,
+        "blocked": false
+      },
+      {
+        "from": [
+          98,
+          2.6,
+          -5
+        ],
+        "to": [
+          98,
+          2.6,
+          -13
+        ],
+        "length": 8,
+        "blocked": false
+      }
+    ]
+  }
+}

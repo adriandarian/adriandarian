@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"><rect width="900" height="600" fill="#071b21"/><style>text{fill:#d3e3de;font:14px sans-serif}.small{font:12px monospace}</style>
+<text x="25" y="30">PCB RECONCILIATION / authoritative board coordinates / top down</text>
+<g transform="translate(220 400) scale(3.5)">
+<rect x="-37" y="-79" width="168" height="110" rx="5" fill="#17443b" stroke="#8aa79b" stroke-width=".3"/>
+<rect x="18" y="-46" width="42" height="36" rx="1" fill="#122329" stroke="#bb8555" stroke-width=".3"/>
+<rect x="101" y="-9" width="36" height="30" fill="#526b70"/><rect x="101" y="-45" width="36" height="30" fill="#526b70"/>
+<rect x="96" y="-78" width="40" height="27" fill="#526b70"/>
+<rect x="73" y="-4" width="8" height="28" fill="#b7b89a"/>
+<path d="M-20 -67H82.6M-20 -60.5H82.6" stroke="#bb8555" stroke-width="1.1" stroke-dasharray=".8 4.6"/>
+<path d="M0 23V-51L10 -61 M4 -11H12L16 -4H62L72 6H105" fill="none" stroke="#68dbc6" stroke-width=".6"/>
+<rect x="11" y="-22" width="7" height="12" fill="#f2b978"/>
+<rect x="109.5" y="-13.8" width="5" height="3.6" fill="#d6c4a1"/>
+<path d="M0 10V-11H4V-7H16V-5" fill="none" stroke="#f2b978" stroke-width=".6"/>
+<path d="M4 -11L12 -4H69V27H98V-5" fill="none" stroke="#b6a2d5" stroke-width=".6" stroke-dasharray="1.4 1"/>
+<path d="M98 -5V-13" stroke="#d6c4a1" stroke-width="1"/>
+<g fill="#fff"><circle cx="0" cy="10" r="1"/><circle cx="16" cy="-5" r="1"/><circle cx="98" cy="-13" r="1"/></g></g>
+<text x="285" y="290">Processor [39,7.3,-28]</text><text x="210" y="185">Existing GPIO rows</text>
+<text x="580" y="237">Socket 1</text><text x="580" y="430">Socket 0</text>
+<text x="610" y="358">Notebook gap</text><text x="205" y="358">Workshop attachment</text>
+<text x="208" y="462">A / entry</text><text x="275" y="400">C</text><text x="535" y="338">B</text>
+<text x="25" y="540" class="small">Mint = existing trace (schematic subset). Amber = proposed main route.</text>
+<text x="25" y="562" class="small">Purple = optional route around ribbon housing. Parchment = local 8-unit reveal sweep.</text>
+<text x="25" y="584" class="small">No component moves. New workshop, notebook and conductor are explicitly marked attachments.</text></svg>
