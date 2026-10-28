@@ -1,5 +1,7 @@
 # Phase 1 validation — 27 October 2026
 
+This records Phase 1. For the current scale-transition slice, see [Phase 2 validation, capture and performance evidence](PHASE2.md).
+
 ## Scope and environment
 
 Windows, Node 22.16.0, npm 10.9.2. Browser scenarios run against **Vite's production preview**, using Playwright Chromium with software WebGL (SwiftShader). Mobile coverage uses a 390×844 viewport plus a separate touch-enabled emulated device. This is focused prototype verification, not a claim of cross-browser or physical-device acceptance.

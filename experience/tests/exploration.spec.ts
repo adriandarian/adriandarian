@@ -187,6 +187,7 @@ test("reduced motion, mobile controls, deep links and WebGL recovery", async ({
 test("raycasts the physical board mesh and focuses it before the world changes", async ({
   page,
 }) => {
+  test.setTimeout(45000);
   await page.clock.install({ time: new Date("2026-10-28T00:00:00Z") });
   await page.goto("/");
   await ready(page, "trail/start");
@@ -199,6 +200,7 @@ test("raycasts the physical board mesh and focuses it before the world changes",
   await page.clock.runFor(900); // Clock stays paused while assertions/capture run.
   await expect(page).toHaveURL(/trail\/start/);
   await page.screenshot({ path: "test-results/board-approach.png" });
+  await page.clock.runFor(4500); // Complete Phase 2's longer journey deterministically too.
   await page.clock.resume();
   await expect(page).toHaveURL(/circuit\/board/);
   await ready(page, "circuit/board");

@@ -28,7 +28,7 @@ export default function Artifacts({ world }: { world: WorldId }) {
             document.body.style.cursor = "";
           }}
         >
-          <ArtifactModel id={item.id} />
+          {item.id !== "pi" && <ArtifactModel id={item.id} />}
           <Html
             position={[0, item.id === "cafe" ? 4.3 : 1.1, 0]}
             center

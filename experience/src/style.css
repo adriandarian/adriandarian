@@ -659,3 +659,84 @@ h1:focus {
 .notebook .scene::after {
   background: linear-gradient(to bottom, #d7c7a4cc 0%, transparent 40%);
 }
+
+/* Phase 2 adds only contextual board/circuit controls. */
+.pi-inspection {
+  position: absolute;
+  left: 44px;
+  bottom: 140px;
+  max-width: 280px;
+  font-size: 12px;
+  background: #eeeee0ee;
+  border: 1px solid #6c7d6950;
+  border-radius: 3px;
+  padding: 12px 16px;
+  color: #263a31;
+}
+.pi-inspection button {
+  padding: 8px 0;
+  text-align: left;
+  min-height: 36px;
+}
+.pi-inspection button span {
+  margin-left: 18px;
+}
+.pi-inspection p {
+  font-size: 10px;
+  line-height: 1.7;
+  opacity: 0.7;
+  margin: 5px 0;
+}
+.branch-controls {
+  position: absolute;
+  left: 44px;
+  bottom: 145px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.branch-controls span {
+  font-size: 8px;
+  letter-spacing: 1.4px;
+}
+.branch-controls button {
+  border: 1px solid #d3e9d95a;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+}
+.universe[data-busy="true"] .world-heading,
+.universe[data-busy="true"] .mesh-label,
+.universe[data-busy="true"] .scene::after {
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.world-heading,
+.mesh-label,
+.scene::after {
+  transition: opacity 0.4s;
+}
+@media (max-width: 760px) {
+  .pi-inspection {
+    left: 22px;
+    bottom: 158px;
+    max-width: 195px;
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+  .branch-controls {
+    left: 22px;
+    bottom: 158px;
+  }
+  .branch-controls span {
+    display: none;
+  }
+  .branch-controls {
+    gap: 10px;
+  }
+}
+
+.universe[data-inspecting="true"] .world-heading,
+.universe[data-inspecting="true"] .scene::after {
+  opacity: 0;
+}
