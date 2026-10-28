@@ -168,7 +168,11 @@ export default function App() {
       window.removeEventListener("universe:context-lost", contextLost);
     };
   }, [cancel]);
+  const focusedRoute = useRef(routeHash(route));
   useEffect(() => {
+    const next = routeHash(route);
+    if (focusedRoute.current === next) return;
+    focusedRoute.current = next;
     heading.current?.focus({ preventScroll: true });
   }, [route]);
   useEffect(() => {

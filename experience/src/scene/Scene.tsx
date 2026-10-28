@@ -3,12 +3,13 @@ import { Suspense, lazy, useEffect, useMemo, useRef } from "react";
 import { worlds } from "../core/worlds";
 import { RuntimeContext, type Runtime } from "../core/context";
 import type { Route } from "../core/types";
+import type { PerspectiveCamera } from "three";
 import CameraRig from "./CameraRig";
 import Artifacts from "./Artifacts";
 import { assetManifest, checkBudget } from "../core/assets";
 
 function Diagnostics({ route }: { route: Route }) {
-  const { gl, scene } = useThree();
+  const { gl, scene, camera } = useThree();
   const frames = useRef(0);
   const ready = `${route.world}/${route.entry}`;
   useFrame((_, dt) => {
@@ -36,6 +37,7 @@ function Diagnostics({ route }: { route: Route }) {
         ...sample,
         withinBudget: checkBudget(route.world, sample),
         children: scene.children.length,
+        camera: { fov: (camera as PerspectiveCamera).fov },
       });
     }, 500);
     const canvas = gl.domElement;
