@@ -1,6 +1,6 @@
 # Trace Canyon: composition approval package
 
-**Latest revision: [PCB reconciliation v2](reconciled/README.md).** It renders the unchanged production board at its actual circuit transform, widens and samples the notebook reveal, and provides updated A/B/C frames. The original maquette and video below remain historical; they are not the latest PCB-aligned layout.
+**Latest focused revision: [open canopy study](canopy-refinement/README.md).** It preserves the approved spatial baseline [PCB reconciliation v2](reconciled/README.md) at `446f8a7` and the approved notebook placement. Only the workshop canopy treatment and review cameras are refined. The original maquette and video below remain historical.
 
 Design-only shared 3D maquette. Original custom geometry; no external models, textures or generated image backgrounds. This package changes no application scene or runtime dependencies. All three targets are real renders of the same fixed geometry. Only camera pose and the trace pulse change. Annotations are review overlays, not proposed persistent interface labels.
 

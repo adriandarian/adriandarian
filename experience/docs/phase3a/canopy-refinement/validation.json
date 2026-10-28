@@ -1,0 +1,81 @@
+{
+  "baseline": "446f8a7",
+  "unchangedFields": [
+    "transform",
+    "landmarks",
+    "traces",
+    "navigationProposal",
+    "reveal",
+    "notebook",
+    "spur",
+    "poses.A",
+    "poses.B"
+  ],
+  "notebookVisibleCounts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    4,
+    6,
+    10,
+    10,
+    10,
+    10,
+    10,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9
+  ],
+  "arrivalVisible": 0,
+  "routeCenterlinesClear": true,
+  "hostVisibility": {
+    "C": {
+      "sample": [
+        18,
+        10,
+        -20
+      ],
+      "inFrustum": true,
+      "firstHitOriginalBoard": true
+    },
+    "close": {
+      "sample": [
+        18,
+        10,
+        -20
+      ],
+      "inFrustum": true,
+      "firstHitOriginalBoard": true
+    },
+    "side": {
+      "sample": [
+        18,
+        10,
+        -20
+      ],
+      "inFrustum": true,
+      "firstHitOriginalBoard": true
+    }
+  },
+  "limitations": "Point rays and centerlines, not body clearance or working navigation. No timing or performance claim."
+}

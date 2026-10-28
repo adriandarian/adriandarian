@@ -1,6 +1,6 @@
 # Phase 3 visual design brief
 
-Status: Overall composition approved at f96b3db, subject to focused notebook-reveal and PCB-mapping reconciliation. The [v2 study](phase3a/reconciled/README.md) now uses the actual production PiBoard geometry and a multipoint lateral visibility sweep. Its updated composition and explicitly attached workshop need visual review before material/lighting development. Phase 3A implementation is not yet approved.
+Status: Spatial baseline `446f8a7` retained. Entry handedness approved with deliberate rotation after the original handoff pose; notebook location/reveal approved for spatial design. The [open canopy refinement](phase3a/canopy-refinement/README.md) is the remaining visual review item. Navigation has a separate acceptance gate for body clearance, controllable paths, cornering, visibility, cancellation and accessible alternatives. Phase 3A implementation is not yet approved.
 Baseline: Phase 2 squash merge `65c2acf`; security cleanup squash merge `33c57c3`.
 
 ## The question
