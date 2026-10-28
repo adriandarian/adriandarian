@@ -1,0 +1,32 @@
+{
+  "A": {
+    "notebookSampleDistance": 33.818817247207214,
+    "firstSurfaceDistance": 24.027807083668105,
+    "firstSurface": [
+      7.2,
+      2.6,
+      -4.45
+    ],
+    "sampleOccluded": true
+  },
+  "B": {
+    "notebookSampleDistance": 10.72373069411947,
+    "firstSurfaceDistance": 10.849399410070165,
+    "firstSurface": [
+      10.8,
+      1.78,
+      -13.9
+    ],
+    "sampleOccluded": false
+  },
+  "C": {
+    "notebookSampleDistance": 11.221782389620644,
+    "firstSurfaceDistance": 19.108789823835153,
+    "firstSurface": [
+      19,
+      1,
+      -12
+    ],
+    "sampleOccluded": false
+  }
+}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 740">
+<rect width="900" height="740" fill="#071B21"/><style>text{fill:#d1e4df;font:15px sans-serif}.small{font:12px monospace}.route{fill:none;stroke:#68DBC6;stroke-width:3}</style>
+<text x="30" y="35">TRACE CANYON / fixed geometry, camera-only traversal</text><text x="30" y="58" class="small">Top-down schematic · positions from scene-manifest.json · north = decreasing Z</text>
+<g transform="translate(385 410) scale(8)">
+<rect x="-20.5" y="-39.5" width="19" height="31" fill="#233941" stroke="#BB8555" stroke-width=".15"/>
+<rect x="-9" y="-24" width="6" height="8" fill="#F2B978" opacity=".7"/>
+<rect x="5.35" y="-7.5" width="3.7" height="3" fill="#738586"/>
+<rect x="9.45" y="-7.5" width="3.7" height="3" fill="#738586"/>
+<rect x="8.55" y="-16.35" width="3.3" height="4.7" fill="#d2bb8e"/>
+<path d="M1 24V-3L-1 -7V-17L-7 -21 M1 -3L9 -8L11 -18 M-1 -17L6 -23V-43" fill="none" stroke="#68DBC6" stroke-width=".4"/>
+<path d="M19 -12V-52 M21.1 -12V-52" stroke="#BB8555" stroke-width="1" stroke-dasharray="1 1.7"/>
+<circle cx="-7" cy="9" r="1.8" fill="#536568"/><circle cx="15" cy="-29" r="3" fill="#536568"/>
+<path d="M3 19L15.8 -4.5 M3 19L.2 -17.5" fill="none" stroke="#F2B978" stroke-width=".3" stroke-dasharray=".7 .6"/>
+<path d="M3 19L10.8 -13.9" stroke="#a97979" stroke-width=".18" stroke-dasharray=".3 .5"/>
+<path d="M15.8 -4.5L10.8 -13.9" stroke="#d2bb8e" stroke-width=".25"/>
+<g fill="#F2B978"><circle cx="3" cy="19" r=".65"/><circle cx="15.8" cy="-4.5" r=".65"/><circle cx=".2" cy="-17.5" r=".65"/></g>
+</g>
+<text x="200" y="215">Processor</text><text x="225" y="255" class="small">Workshop underneath</text>
+<text x="480" y="265">Notebook</text><text x="485" y="395">Connector screen</text><text x="575" y="160">GPIO forest</text>
+<text x="420" y="580">A / arrival</text><text x="530" y="370">B / reveal</text><text x="390" y="245">C / workshop</text>
+<text x="30" y="660" class="small">Mint: physical trace · amber dashes: reversible camera paths</text>
+<text x="30" y="682" class="small">Muted red: blocked A→notebook sightline · parchment: clear B→notebook sightline</text>
+<text x="30" y="708" class="small">Existing graph: laboratory → experiment; notebook → Notebook World; leaf → trail</text>
+</svg>
