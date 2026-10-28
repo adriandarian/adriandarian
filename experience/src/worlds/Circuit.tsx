@@ -1,7 +1,7 @@
 import type { WorldProps } from "../core/types";
 import { Atmosphere, Box } from "../scene/Models";
 
-// The landscape is literally the same board, transformed 100?. No proxy skyline.
+// The landscape is the same board, transformed 100x. No proxy skyline.
 export default function Circuit({ reducedMotion }: WorldProps) {
   return (
     <>

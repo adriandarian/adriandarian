@@ -1,6 +1,6 @@
 # Handoff diagnosis — 27 October 2026
 
-This follows the Phase 2 review at `333ec6e`. It changes no art direction, adds no world and does not change production deployment. Phase 1 review fixes have been merged into the Phase 2 feature branch; both PRs remain open pending an explicit merge decision.
+This follows the Phase 2 review at `333ec6e`. It changes no art direction, adds no world and does not change production deployment. Phase 1 PR #3 was subsequently squash-merged as `f73018f`; Phase 2 PR #4 now targets `main` and remains open for final review. The before/after trace evidence below is preserved unchanged.
 
 ## Evidence collection
 
