@@ -6,6 +6,8 @@ Read [the repository assessment](docs/ASSESSMENT.md) for deployment evidence and
 
 Phase 2 adds the detailed Raspberry Pi-inspired board, close inspection, a shared-geometry 100× scale handoff, and lateral circuit exploration. Start with [the Phase 2 guide, captured demo and performance results](docs/PHASE2.md) for the current slice. The Phase 1 assessment and validation notes remain historical records of that foundation.
 
+The [handoff diagnosis](docs/HANDOFF_DIAGNOSIS.md) contains cold/warm CPU and GPU-wait traces, the focused module-cache/Suspense fix, and the remaining cold-entry limits. Resolved world modules render synchronously after prefetch; the shared board stays outside environment-loading boundaries.
+
 ## Run locally
 
 Node 22.12+ (validated on 22.16), npm 10+:

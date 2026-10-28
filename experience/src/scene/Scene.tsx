@@ -1,5 +1,13 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Suspense, lazy, useEffect, useMemo, useRef } from "react";
+import {
+  Suspense,
+  lazy,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+} from "react";
+import { traceScaleMark } from "../core/traceScale";
 import { worlds } from "../core/worlds";
 import { RuntimeContext, type Runtime } from "../core/context";
 import type { Route } from "../core/types";
@@ -9,8 +17,12 @@ import CameraRig from "./CameraRig";
 import Artifacts from "./Artifacts";
 import { assetManifest, checkBudget } from "../core/assets";
 import ScaleBoard from "../pi/ScaleBoard";
+import { worldModules } from "../core/worldModules";
 
 function Diagnostics({ route }: { route: Route }) {
+  useLayoutEffect(() => {
+    traceScaleMark(`${route.world}:world-mounted`);
+  }, [route.world]);
   const { gl, scene, camera } = useThree();
   const frames = useRef(0);
   const intervals = useRef<number[]>([]);
@@ -107,25 +119,32 @@ export default function Scene({
   fallback: React.ReactNode;
 }) {
   const world = worlds[route.world];
-  const World = useMemo(
-    () =>
-      lazy(async () => {
-        const { default: Geometry, Controller } = await world.load();
-        return {
-          default: (props: { reducedMotion: boolean }) => (
-            <>
-              <Geometry {...props} />
-              {Controller ? (
-                <Controller {...props} />
-              ) : (
-                <CameraRig world={world} />
-              )}
-            </>
-          ),
-        };
-      }),
-    [world],
-  );
+  const World = useMemo(() => {
+    const component = ({
+      default: Geometry,
+      Controller,
+    }: Awaited<ReturnType<typeof world.load>>) =>
+      function WorldBundle(props: { reducedMotion: boolean }) {
+        return (
+          <>
+            <Geometry {...props} />
+            {Controller ? (
+              <Controller {...props} />
+            ) : (
+              <CameraRig world={world} />
+            )}
+          </>
+        );
+      };
+    const ready = worldModules.get(world.id);
+    // Prefetch completion is a synchronous render path. Creating a fresh lazy
+    // promise here would suspend again even though the import already finished.
+    return ready
+      ? component(ready)
+      : lazy(async () => ({
+          default: component(await worldModules.load(world)),
+        }));
+  }, [world]);
   return (
     <Canvas
       dpr={[1, assetManifest[route.world].maxDpr]}
@@ -134,8 +153,8 @@ export default function Scene({
       fallback={fallback}
     >
       <RuntimeContext.Provider value={runtime}>
+        <ScaleBoard world={route.world} />
         <Suspense fallback={null}>
-          <ScaleBoard world={route.world} />
           <group key={`${route.world}/${route.entry}`}>
             <World reducedMotion={runtime.reducedMotion} />
             <Artifacts world={route.world} />

@@ -5,6 +5,7 @@ import { useRuntime } from "../core/context";
 import type { WorldDefinition } from "../core/types";
 import { placementMatrix, sampleScaleJourney } from "../pi/scaleJourney";
 import { worlds } from "../core/worlds";
+import { traceScaleMark } from "../core/traceScale";
 export default function CameraRig({ world }: { world: WorldDefinition }) {
   const { camera, pointer } = useThree();
   const { progress, journey, reducedMotion, handoff, steer, inspection } =
@@ -25,6 +26,7 @@ export default function CameraRig({ world }: { world: WorldDefinition }) {
   );
   useFrame((_, dt) => {
     if (handoff.current && world.id === "trail") return;
+    if (!initialized.current) traceScaleMark(`${world.id}:first-frame`);
     const pose = world.camera(progress.current);
     desired.current.fromArray(pose.position);
     target.current.fromArray(pose.target);

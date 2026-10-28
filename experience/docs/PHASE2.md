@@ -1,6 +1,8 @@
 # Phase 2 · Raspberry Pi — The Scale Transition
 
-This is a stacked change on Phase 1 PR #3 (`8d7d827`), on `feat/pi-scale-transition`. It keeps the existing engine, hash navigation graph, notebook, recovery controls and production protection. The Phase 2 PR targets the Phase 1 branch while PR #3 remains open. Nothing is merged or deployed.
+This is a stacked change on Phase 1 PR #3, on `feat/pi-scale-transition`. It keeps the existing engine, hash navigation graph, notebook, recovery controls and production protection. Phase 1 review fixes through `2c8f988` have been merged into this feature branch. The Phase 2 PR targets the Phase 1 branch while PR #3 remains open. Neither PR is merged into main or deployed.
+
+The original capture and benchmark below describe the Phase 2 baseline at `333ec6e`. The [review follow-up diagnosis](HANDOFF_DIAGNOSIS.md) adds cold/warm handoff traces, fixes an avoidable lazy-boundary stall, and separates the remaining shader/GPU-wait cost. Its instrumented measurements are not directly comparable to the uninstrumented baseline table.
 
 ## Try it
 

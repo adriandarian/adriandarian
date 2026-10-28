@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 test("inspection reveals a detailed mesh, then shrinks without a fullscreen veil", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("/?traceScale=1");
   await expect(page.locator("html")).toHaveAttribute(
     "data-world-ready",
     "trail/start",
@@ -18,6 +18,7 @@ test("inspection reveals a detailed mesh, then shrinks without a fullscreen veil
   await page.mouse.move(1050, 500);
   await page.waitForTimeout(800);
   await page.screenshot({ path: "test-results/pi-inspect-right.png" });
+  await page.evaluate(() => performance.clearMarks());
   await page.getByRole("button", { name: "Enter the circuitry" }).click();
   await expect
     .poll(async () =>
@@ -32,6 +33,18 @@ test("inspection reveals a detailed mesh, then shrinks without a fullscreen veil
     "circuit/board",
   );
   expect(await page.locator("canvas").count()).toBe(1);
+  expect(
+    await page.evaluate(
+      () =>
+        performance
+          .getEntriesByType("mark")
+          .filter(
+            (mark) =>
+              mark.name === "scale:board:layout-cleanup" ||
+              mark.name === "scale:board:layout-mounted",
+          ).length,
+    ),
+  ).toBe(0);
   await expect
     .poll(
       async () =>

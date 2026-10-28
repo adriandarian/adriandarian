@@ -1,6 +1,7 @@
 import { useLayoutEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { RoundedBox } from "@react-three/drei";
+import { traceScaleMark } from "../core/traceScale";
 import { InstancedMesh, Object3D, Path, Shape } from "three";
 import {
   gpio,
@@ -170,6 +171,10 @@ export default function PiBoard({
 }: {
   reducedMotion?: boolean;
 }) {
+  useLayoutEffect(() => {
+    traceScaleMark("board:layout-mounted");
+    return () => traceScaleMark("board:layout-cleanup");
+  }, []);
   const shape = useMemo(() => {
     const s = new Shape(),
       w = 0.84,

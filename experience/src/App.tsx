@@ -10,6 +10,8 @@ import {
 } from "react";
 import gsap from "gsap";
 import { JourneyLease } from "./core/journeyLease";
+import { traceScaleMark } from "./core/traceScale";
+import { worldModules } from './core/worldModules';
 import { artifacts } from "./core/artifacts";
 import {
   commitRoute,
@@ -310,6 +312,7 @@ export default function App() {
       setBusy(true);
       setHover(null);
       const transition = transitionFor(world, id);
+      if (transition.kind === "board") traceScaleMark("activation");
       journey.current = {
         target: item.position,
         phase: 0,
@@ -318,7 +321,7 @@ export default function App() {
       };
       veil.current.style.background = transition.cover;
       veil.current.style.pointerEvents = "auto";
-      const destinationModule = worlds[next.world].load();
+      const destinationModule = worldModules.load(worlds[next.world]);
       // Load and animate independently; both must finish under the same lease.
       // Board travel never uses the DOM veil. Its final pose is the exact
       // coordinate-scaled entry of the enlarged board in Circuit World.
@@ -329,7 +332,9 @@ export default function App() {
       const finish = () => {
         if (!loaded || !arrived || !lease.current.owns(token)) return;
         handoff.current = transition.kind === "board";
+        if (transition.kind === "board") traceScaleMark("route-commit-before");
         commitRoute(next);
+        if (transition.kind === "board") traceScaleMark("route-commit-after");
         if (transition.kind !== "board" && veil.current) {
           veil.current.style.opacity = "1";
           tween.current = gsap.timeline().to(veil.current, {
@@ -350,11 +355,13 @@ export default function App() {
       if (transition.kind !== "board")
         tl.to(veil.current, { opacity: 1, duration: 0.22 }, "-=.22");
       tl.call(() => {
+        if (transition.kind === "board") traceScaleMark("camera-arrived");
         arrived = true;
         finish();
       });
       void destinationModule
         .then(() => {
+          if (transition.kind === "board") traceScaleMark("module-ready");
           loaded = true;
           finish();
         })
