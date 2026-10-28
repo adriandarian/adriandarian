@@ -9,6 +9,49 @@ async function openObject(page: Page, name: string) {
     await details.locator("summary").click();
   await details.getByRole("button", { name: new RegExp(name) }).click();
 }
+
+test("skip link focuses the expanded object list without changing world or history", async ({
+  page,
+}) => {
+  await page.goto("/#/circuit/bookmark");
+  await ready(page, "circuit/bookmark");
+  const historyLength = await page.evaluate(() => history.length);
+  const skip = page.getByRole("link", { name: "Skip to objects" });
+  await skip.focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#discoveries")).toHaveAttribute("open", "");
+  await expect(
+    page.getByRole("region", { name: "Objects in this world" }),
+  ).toBeFocused();
+  await expect(page).toHaveURL(/#\/circuit\/bookmark$/);
+  await expect(page.locator("main")).toHaveAttribute("data-world", "circuit");
+  expect(await page.evaluate(() => history.length)).toBe(historyLength);
+  await page.keyboard.press("Tab");
+  await expect(
+    page
+      .locator("#discoveries")
+      .getByRole("button", { name: /Signal laboratory/ }),
+  ).toBeFocused();
+});
+
+test("deep-link movement controls start at the camera entry and can move backward", async ({
+  page,
+}) => {
+  await page.goto("/#/circuit/bookmark");
+  await ready(page, "circuit/bookmark");
+  await expect(page.locator(".movement b")).toHaveAttribute(
+    "style",
+    "width: 62%;",
+  );
+  const backward = page.getByRole("button", { name: "Move backward" });
+  await expect(backward).toBeEnabled();
+  await backward.click();
+  await expect(page.locator(".movement b")).toHaveAttribute(
+    "style",
+    "width: 53%;",
+  );
+  await expect(page).toHaveURL(/#\/circuit\/bookmark$/);
+});
 test("real WebGL scene, guided movement, spatial portal, history and contextual notebook", async ({
   page,
 }) => {

@@ -112,10 +112,11 @@ export default function App() {
   const [panel, setPanel] = useState<"cafe" | "signal" | null>(null);
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
-  const [progressDisplay, setProgressDisplay] = useState(0);
   const reducedMotion = useReducedMotion();
   const world = worlds[route.world];
-  const progress = useRef(world.entries[route.entry] ?? 0);
+  const entryProgress = world.entries[route.entry] ?? 0;
+  const [progressDisplay, setProgressDisplay] = useState(entryProgress);
+  const progress = useRef(entryProgress);
   const journey = useRef<Journey | null>(null);
   const tween = useRef<gsap.core.Timeline | null>(null);
   const veil = useRef<HTMLDivElement>(null);
@@ -371,8 +372,12 @@ export default function App() {
       <a
         className="skip"
         href="#discoveries"
-        onClick={() => {
-          if (discoveriesRef.current) discoveriesRef.current.open = true;
+        onClick={(event) => {
+          event.preventDefault();
+          const discoveries = discoveriesRef.current;
+          if (!discoveries) return;
+          discoveries.open = true;
+          discoveries.querySelector<HTMLElement>(".discovery-list")?.focus();
         }}
       >
         Skip to objects
@@ -539,7 +544,12 @@ export default function App() {
         <summary>
           Objects nearby <span>＋</span>
         </summary>
-        <div className="discovery-list">
+        <div
+          className="discovery-list"
+          role="region"
+          tabIndex={-1}
+          aria-label="Objects in this world"
+        >
           <p>Find these in the landscape, or open them here.</p>
           {world.placements.map((item) => (
             <button
