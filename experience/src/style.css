@@ -1,0 +1,661 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Caslon+Display&display=swap");
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #263a31;
+  background: #dbe2d6;
+  font-synthesis: none;
+  font-weight: 400;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+a,
+input,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+button,
+a,
+summary {
+  touch-action: manipulation;
+}
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+button {
+  border: 0;
+  background: none;
+}
+a {
+  color: inherit;
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+h1:focus {
+  outline: none;
+}
+.universe {
+  height: 100svh;
+  min-height: 520px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  --ink: #263a31;
+  --paper: #eeeee0;
+  color: var(--ink);
+}
+.scene {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+}
+.scene canvas {
+  display: block;
+}
+.masthead {
+  position: absolute;
+  inset: 30px 44px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  gap: 24px;
+}
+.masthead > * {
+  pointer-events: auto;
+}
+.wordmark {
+  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: -1px;
+  font-weight: 600;
+}
+.wordmark > span {
+  font-weight: 400;
+  opacity: 0.5;
+}
+.wordmark .tiny-star {
+  display: inline-block;
+  font-size: 25px;
+  margin-left: 12px;
+  opacity: 1;
+}
+.edition {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+.edition span {
+  opacity: 0.55;
+  margin-left: 12px;
+}
+.text-button {
+  font-size: 12px;
+  padding: 12px 0;
+}
+.text-button span {
+  margin-left: 14px;
+  font-size: 19px;
+}
+.world-heading {
+  position: absolute;
+  top: 134px;
+  left: 7%;
+  pointer-events: none;
+  max-width: 510px;
+}
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 2.3px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+.world-heading h1 {
+  font-family: "Libre Caslon Display", Georgia, serif;
+  font-size: clamp(44px, 5.4vw, 78px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -2px;
+  margin: 17px 0;
+}
+.world-heading p {
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  margin: 0;
+  opacity: 0.8;
+}
+.compass {
+  position: absolute;
+  right: 46px;
+  top: 135px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  pointer-events: none;
+}
+.compass > span {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+.compass i {
+  font-style: normal;
+  font-family: serif;
+  font-size: 44px;
+  font-weight: 400;
+}
+.compass small {
+  writing-mode: vertical-rl;
+  font-size: 8px;
+  letter-spacing: 2.5px;
+  margin-top: 22px;
+  opacity: 0.6;
+}
+.trail-footer {
+  position: absolute;
+  bottom: 36px;
+  left: 44px;
+  right: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  pointer-events: none;
+}
+.trail-footer button {
+  pointer-events: auto;
+}
+.journey-caption {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.route-mark {
+  font-size: 43px;
+  line-height: 1;
+}
+.journey-caption strong {
+  display: block;
+  font-family: "Libre Caslon Display", Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+}
+.journey-caption div > span {
+  display: block;
+  font-size: 10px;
+  margin-top: 6px;
+  opacity: 0.7;
+}
+.movement {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.movement > span {
+  font-size: 9px;
+  letter-spacing: 1.6px;
+}
+.movement button {
+  font-size: 20px;
+  width: 36px;
+  height: 44px;
+  border: 1px solid #6c7d6950;
+  border-radius: 50%;
+}
+.movement i {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #68766140;
+  margin-top: 12px;
+}
+.movement b {
+  height: 2px;
+  background: var(--ink);
+  display: block;
+  transition: width 0.2s;
+}
+.prototype-stamp {
+  text-align: right;
+  font-size: 8px;
+  line-height: 1.8;
+  letter-spacing: 1.5px;
+  opacity: 0.6;
+}
+.mesh-label {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  background: #f5f0d8e8;
+  padding: 9px 13px;
+  border: 1px solid #75806c50;
+  border-radius: 2px;
+  color: #263a31;
+  box-shadow: 0 4px 20px #20352916;
+}
+.mesh-label > span {
+  font-size: 15px;
+}
+.discoveries {
+  position: absolute;
+  right: 44px;
+  bottom: 132px;
+  width: 240px;
+  background: #f1f0e4ed;
+  border: 1px solid #87968050;
+  color: #263a31;
+  border-radius: 3px;
+  backdrop-filter: blur(12px);
+  z-index: 3;
+}
+.discoveries summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 11px;
+  padding: 14px 17px;
+  display: flex;
+  justify-content: space-between;
+}
+.discoveries summary::-webkit-details-marker {
+  display: none;
+}
+.discoveries[open] summary {
+  border-bottom: 1px solid #87968040;
+}
+.discovery-list {
+  padding: 4px 16px 16px;
+}
+.discovery-list p {
+  font-size: 10px;
+  line-height: 1.7;
+  opacity: 0.7;
+}
+.discovery-list button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #87968030;
+  padding: 14px 0;
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+  gap: 10px;
+}
+.discovery-list button:hover {
+  color: #8d593d;
+}
+.discovery-list button small {
+  font-size: 9px;
+  white-space: nowrap;
+}
+.discovery-list > small {
+  display: block;
+  margin-top: 14px;
+  font-size: 10px;
+  line-height: 1.7;
+  opacity: 0.7;
+}
+.hover-prompt {
+  position: absolute;
+  bottom: 132px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  font-size: 12px;
+}
+.hover-prompt > span {
+  background: #f1f0e4ed;
+  padding: 12px 18px;
+  border-radius: 2px;
+  color: #263a31;
+}
+.hover-prompt b {
+  margin-left: 25px;
+  font-weight: 400;
+}
+.transition-veil {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+  background: #0d3434;
+}
+.circuit {
+  --ink: #d3e9d9;
+  --paper: #183c3e;
+}
+.circuit .world-heading p {
+  color: #a4c0b7;
+}
+.circuit .movement button {
+  border-color: #c0e8d94a;
+}
+.circuit .movement i {
+  background: #c0e8d930;
+}
+.wayfinder {
+  position: absolute;
+  right: 30px;
+  top: 88px;
+  width: min(380px, calc(100% - 40px));
+  padding: 28px;
+  background: #f1f0e8;
+  color: #263a31;
+  box-shadow: 0 15px 70px #15291c30;
+  z-index: 5;
+  border: 1px solid #536c4f30;
+}
+.panel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.panel-top button {
+  font-size: 25px;
+  line-height: 1;
+  min-width: 34px;
+  min-height: 36px;
+}
+.wayfinder h2,
+.object-panel h2,
+.fallback h2 {
+  font-family: "Libre Caslon Display", Georgia, serif;
+  font-size: 38px;
+  line-height: 1.1;
+  font-weight: 400;
+  margin: 24px 0 14px;
+}
+.wayfinder p,
+.object-panel p,
+.fallback p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.world-link {
+  display: flex;
+  gap: 18px;
+  width: 100%;
+  padding: 22px 0;
+  border-bottom: 1px solid #536c4f30;
+  text-align: left;
+  align-items: center;
+}
+.world-link small {
+  opacity: 0.5;
+}
+.world-link span:last-child {
+  margin-left: auto;
+}
+.wayfinder .fine {
+  font-size: 11px;
+  opacity: 0.7;
+  margin-top: 28px;
+}
+.modal-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: #102e295c;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  backdrop-filter: blur(5px);
+}
+.object-panel {
+  background: #f1efe3;
+  color: #263a31;
+  padding: 32px;
+  width: min(480px, 100%);
+  max-height: 90svh;
+  overflow: auto;
+  box-shadow: 0 20px 90px #0b211a35;
+}
+.object-panel:focus {
+  outline: none;
+}
+.object-panel .eyebrow {
+  font-size: 8px;
+  letter-spacing: 1.2px;
+}
+.lab {
+  margin-top: 25px;
+}
+.circuit-diagram {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.node {
+  padding: 12px;
+  border: 1px solid #839f87;
+  font-family: monospace;
+  font-size: 12px;
+}
+.node.on {
+  background: #d1e7c0;
+}
+.circuit-diagram i {
+  height: 2px;
+  background: #78936b;
+  flex: 1;
+}
+.switch {
+  font-size: 13px;
+  display: block;
+}
+.lab fieldset {
+  display: flex;
+  gap: 30px;
+  border: 1px solid #839f8750;
+  margin: 20px 0;
+  padding: 14px;
+  font-size: 13px;
+}
+.lab legend {
+  font-size: 10px;
+  padding: 0 10px;
+}
+.primary {
+  background: #304b3c;
+  color: #f1efe3;
+  padding: 14px 22px;
+  font-size: 12px;
+}
+.cafe-note {
+  border-top: 1px solid #536c4f30;
+  margin-top: 35px;
+  padding-top: 30px;
+  font-family: "Libre Caslon Display", Georgia, serif;
+  font-size: 28px;
+  line-height: 1.4;
+}
+.page-note {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  max-width: 320px;
+}
+.page-note p {
+  font-family: "Libre Caslon Display", Georgia, serif;
+  font-size: 32px;
+  line-height: 1.2;
+}
+.page-note small {
+  font-size: 10px;
+  line-height: 1.7;
+}
+.skip {
+  position: absolute;
+  left: 20px;
+  top: -100px;
+  z-index: 30;
+  background: #f1efe3;
+  color: #263a31;
+  padding: 12px;
+}
+.skip:focus {
+  top: 12px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.loading,
+.fallback {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 440px;
+  width: 75%;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.fallback {
+  background: #eee9d8;
+  padding: 28px;
+  color: #263a31;
+}
+.fallback h2 {
+  font-size: 32px;
+}
+.fallback p {
+  font-size: 12px;
+}
+@media (max-width: 760px) {
+  .masthead {
+    inset: 20px 22px auto;
+  }
+  .edition {
+    display: none;
+  }
+  .wordmark {
+    font-size: 17px;
+  }
+  .world-heading {
+    left: 25px;
+    top: 105px;
+    max-width: 80%;
+  }
+  .world-heading h1 {
+    font-size: 48px;
+    letter-spacing: -1px;
+  }
+  .world-heading p {
+    font-size: 11px;
+  }
+  .compass {
+    right: 24px;
+    top: 280px;
+  }
+  .compass small {
+    display: none;
+  }
+  .trail-footer {
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+    gap: 16px;
+  }
+  .journey-caption {
+    display: none;
+  }
+  .prototype-stamp {
+    font-size: 7px;
+  }
+  .movement {
+    gap: 10px;
+  }
+  .movement > span {
+    font-size: 8px;
+  }
+  .discoveries {
+    right: 22px;
+    bottom: 100px;
+    width: 210px;
+  }
+  .hover-prompt {
+    display: none;
+  }
+  .wayfinder {
+    right: 20px;
+    top: 76px;
+    padding: 24px;
+  }
+  .page-note {
+    top: 43%;
+    width: 230px;
+  }
+  .page-note p {
+    font-size: 25px;
+  }
+  .object-panel {
+    padding: 24px;
+  }
+  .object-panel h2 {
+    font-size: 34px;
+  }
+  .mesh-label {
+    font-size: 12px;
+  }
+  .world-heading .eyebrow {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    #dbe2d6e8 0%,
+    #dbe2d6aa 22%,
+    transparent 45%
+  );
+}
+.circuit .scene::after {
+  background: linear-gradient(
+    to bottom,
+    #071e23e8 0%,
+    #071e2380 22%,
+    transparent 45%
+  );
+}
+.notebook .scene::after {
+  background: linear-gradient(to bottom, #d7c7a4cc 0%, transparent 40%);
+}
