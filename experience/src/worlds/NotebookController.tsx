@@ -1,7 +1,7 @@
 import { OrbitControls } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useLayoutEffect, useRef, type ComponentRef } from "react";
-import { Vector3 } from "three";
+import { Vector3, type PerspectiveCamera } from "three";
 import { useRuntime } from "../core/context";
 import { worlds } from "../core/worlds";
 import type { WorldProps } from "../core/types";
@@ -18,6 +18,8 @@ export default function NotebookController({ reducedMotion }: WorldProps) {
     const pose = worlds.notebook.camera(progress.current);
     camera.position.fromArray(pose.position);
     camera.lookAt(...pose.target);
+    (camera as PerspectiveCamera).fov = pose.fov;
+    camera.updateProjectionMatrix();
     if (controls.current) controls.current.target.fromArray(pose.target);
   }, [camera, progress]);
   useFrame(() => {

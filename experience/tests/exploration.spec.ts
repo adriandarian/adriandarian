@@ -65,10 +65,13 @@ test("real WebGL scene, guided movement, spatial portal, history and contextual 
   await ready(page, "trail/start");
   await page.screenshot({ path: "test-results/trail-start.png" });
   await page.keyboard.press("ArrowDown");
-  await expect(page.locator(".movement b")).toHaveAttribute(
-    "style",
-    "width: 7%;",
-  );
+  await expect
+    .poll(() =>
+      page
+        .locator(".movement b")
+        .evaluate((el) => parseFloat((el as HTMLElement).style.width)),
+    )
+    .toBeCloseTo(7, 5);
   await page.mouse.move(740, 550);
   await page.mouse.wheel(0, 500);
   await expect(page.locator(".movement b")).not.toHaveAttribute(
@@ -184,18 +187,71 @@ test("reduced motion, mobile controls, deep links and WebGL recovery", async ({
 test("raycasts the physical board mesh and focuses it before the world changes", async ({
   page,
 }) => {
+  await page.clock.install({ time: new Date("2026-10-28T00:00:00Z") });
   await page.goto("/");
   await ready(page, "trail/start");
   // Coordinates come from the inspected 1440×1000 rendered trail capture.
   await page.mouse.move(645, 380);
   await expect(page.locator(".hover-prompt")).toContainText("A smaller world");
+  await page.clock.pauseAt(new Date("2026-10-28T01:00:00Z"));
   await page.mouse.click(645, 380);
   await expect(page.locator("main")).toHaveAttribute("data-busy", "true");
-  await page.waitForTimeout(900); // Capture the physical approach before the covered boundary.
+  await page.clock.runFor(900); // Clock stays paused while assertions/capture run.
   await expect(page).toHaveURL(/trail\/start/);
   await page.screenshot({ path: "test-results/board-approach.png" });
+  await page.clock.resume();
   await expect(page).toHaveURL(/circuit\/board/);
   await ready(page, "circuit/board");
+});
+
+test("initial Tab reaches skip link, while actual world changes focus the heading", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await ready(page, "trail/start");
+  await page.keyboard.press("Tab");
+  await expect(
+    page.getByRole("link", { name: "Skip to objects" }),
+  ).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(
+    page.getByRole("region", { name: "Objects in this world" }),
+  ).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(
+    page.locator("#discoveries").getByRole("button", { name: /Raspberry Pi/ }),
+  ).toBeFocused();
+  await page
+    .locator("#discoveries")
+    .getByRole("button", { name: /Field notebook/ })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "Between the pages" }),
+  ).toBeFocused();
+  await page.goBack();
+  await expect(
+    page.getByRole("heading", { name: "The mountain trail" }),
+  ).toBeFocused();
+});
+
+test("notebook applies its declared field of view on direct load and circuit arrival", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/#/notebook/field");
+  await ready(page, "notebook/field");
+  const fov = async () =>
+    JSON.parse((await page.locator("html").getAttribute("data-scene-stats"))!)
+      .camera.fov;
+  await expect.poll(fov).toBe(48);
+  await page.getByRole("button", { name: "Wayfinder" }).click();
+  await page.getByRole("button", { name: "02 Inside the circuit" }).click();
+  await ready(page, "circuit/board");
+  await expect.poll(fov).toBe(58);
+  await openObject(page, "Field notebook");
+  await ready(page, "notebook/copper");
+  await expect.poll(fov).toBe(48);
 });
 
 test("WebGL construction failure preserves the accessible graph", async ({
