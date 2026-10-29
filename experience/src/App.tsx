@@ -247,6 +247,8 @@ function App() {
   const step = useCallback(
     (amount: number) => {
       if (busy || panel || map || inspection.current) return;
+      setHover(null);
+      document.body.style.cursor = "";
       if (currentWorld.current === "circuit" && circuit.current.pending) {
         circuit.current.pending = null;
         progress.current =
@@ -261,6 +263,8 @@ function App() {
   const branch = useCallback(
     (direction: number) => {
       if (busy || panel || map || route.world !== "circuit") return;
+      setHover(null);
+      document.body.style.cursor = "";
       circuit.current.heading = Math.max(
         -1,
         Math.min(1, circuit.current.heading + direction * 0.3),
@@ -271,6 +275,8 @@ function App() {
   );
   const chooseTrace = (name: "workshop" | "notebook") => {
     if (busy || panel || map) return;
+    setHover(null);
+    document.body.style.cursor = "";
     selectBranch(circuit.current, name);
     progress.current =
       circuit.current.target / paths[circuit.current.branch].length;
