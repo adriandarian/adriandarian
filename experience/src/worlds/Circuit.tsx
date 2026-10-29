@@ -1,5 +1,7 @@
 import type { WorldProps } from "../core/types";
 import { Atmosphere, Box } from "../scene/Models";
+import { Workshop } from "../circuit/Attachments";
+export { default as Controller } from "../circuit/Controller";
 
 // The landscape is the same board, transformed 100x. No proxy skyline.
 export default function Circuit({ reducedMotion }: WorldProps) {
@@ -17,8 +19,7 @@ export default function Circuit({ reducedMotion }: WorldProps) {
         intensity={1.5}
         color="#70c9bd"
       />
-      <Box position={[3, 0.55, -11]} size={[3.2, 1.1, 3.6]} color="#244b47" />
-      <Box position={[3.5, 0.5, 4]} size={[1.6, 0.9, 2]} color="#53665a" />
+      <Workshop />
     </>
   );
 }

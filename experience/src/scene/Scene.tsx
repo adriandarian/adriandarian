@@ -11,7 +11,7 @@ import { traceScaleMark } from "../core/traceScale";
 import { worlds } from "../core/worlds";
 import { RuntimeContext, type Runtime } from "../core/context";
 import type { Route } from "../core/types";
-import { PerspectiveCamera, Mesh, InstancedMesh } from "three";
+import { PerspectiveCamera, Mesh, InstancedMesh, Vector3 } from "three";
 import { BOARD_BUDGET } from "../pi/layout";
 import CameraRig from "./CameraRig";
 import Artifacts from "./Artifacts";
@@ -81,9 +81,32 @@ function Diagnostics({ route }: { route: Route }) {
         dpr: gl.getPixelRatio(),
         camera: {
           position: camera.position.toArray(),
+          direction: camera.getWorldDirection(new Vector3()).toArray(),
           fov: (camera as PerspectiveCamera).fov,
           near: (camera as PerspectiveCamera).near,
         },
+        targets:
+          route.world === "circuit"
+            ? Object.fromEntries(
+                Object.entries({
+                  gate: [12.6, 1.5, -16.85],
+                  branch: [13.45, 1.5, -16.85],
+                  send: [14.3, 1.5, -16.85],
+                  notebook: [112, 1.65, -12],
+                }).map(([name, p]) => {
+                  const v = new Vector3(...p).project(camera);
+                  return [
+                    name,
+                    {
+                      x: (v.x * 0.5 + 0.5) * gl.domElement.clientWidth,
+                      y: (-v.y * 0.5 + 0.5) * gl.domElement.clientHeight,
+                      inFrustum:
+                        Math.abs(v.x) <= 1 && Math.abs(v.y) <= 1 && v.z < 1,
+                    },
+                  ];
+                }),
+              )
+            : undefined,
         model: {
           uuid: board?.uuid,
           calls: modelCalls,

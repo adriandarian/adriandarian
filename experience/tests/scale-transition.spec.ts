@@ -55,12 +55,15 @@ test("inspection reveals a detailed mesh, then shrinks without a fullscreen veil
     .toBe(sourceModel);
   expect(await page.evaluate(() => history.length)).toBe(historyLength + 1);
   await expect(page.locator(".transition-veil")).toHaveCSS("opacity", "0");
+  await page.locator(".branch-controls summary").click();
   await page.getByRole("button", { name: "Explore left branch" }).click();
   await page.waitForTimeout(700);
   const stats = JSON.parse(
     (await page.locator("html").getAttribute("data-scene-stats"))!,
   );
-  expect(stats.camera.position[0]).toBeLessThan(-1);
+  // Circuit exploration now rotates the view on a clearance-certified path;
+  // the old +/-X offset could leave the physical traversal corridor.
+  expect(stats.camera.direction[0]).toBeLessThan(-0.1);
 });
 test("rapid cancels and browser back cannot commit stale journeys", async ({
   page,

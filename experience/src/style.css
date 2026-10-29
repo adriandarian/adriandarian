@@ -740,3 +740,63 @@ h1:focus {
 .universe[data-inspecting="true"] .scene::after {
   opacity: 0;
 }
+.circuit .branch-controls {
+  display: block;
+  max-width: min(340px, calc(100vw - 44px));
+  font-size: 12px;
+  z-index: 3;
+}
+.branch-controls summary {
+  cursor: pointer;
+  padding: 10px 12px;
+  border: 1px solid #d3e9d95a;
+  background: #071e23e6;
+  border-radius: 3px;
+}
+.branch-controls > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+  background: #071e23f2;
+}
+.branch-controls button {
+  width: auto;
+  min-width: 44px;
+  min-height: 44px;
+  height: auto;
+  padding: 8px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+.branch-controls small {
+  flex-basis: 100%;
+  line-height: 1.5;
+}
+.circuit .journey-caption,
+.circuit .prototype-stamp,
+.circuit .compass {
+  display: none;
+}
+.circuit .world-heading {
+  animation: arrival-cue 5s forwards;
+  pointer-events: none;
+}
+.circuit .world-heading h1 {
+  font-size: clamp(24px, 4vw, 44px);
+}
+@keyframes arrival-cue {
+  0%,
+  55% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .circuit .world-heading {
+    animation: none;
+    opacity: 0;
+  }
+}
