@@ -4,6 +4,7 @@ import type { WorldId } from "../core/types";
 import { worlds } from "../core/worlds";
 import { artifacts } from "../core/artifacts";
 import { ArtifactModel } from "./Models";
+import { CircuitNotebook } from "../circuit/Attachments";
 export default function Artifacts({ world }: { world: WorldId }) {
   const runtime = useRuntime();
   return (
@@ -28,19 +29,28 @@ export default function Artifacts({ world }: { world: WorldId }) {
             document.body.style.cursor = "";
           }}
         >
-          {item.id !== "pi" && <ArtifactModel id={item.id} />}
-          <Html
-            position={[0, item.id === "cafe" ? 4.3 : 1.1, 0]}
-            center
-            distanceFactor={14}
-            occlude
-            style={{ pointerEvents: "none" }}
-          >
-            <span className="mesh-label">
-              {artifacts[item.id].name}
-              <span>↗</span>
-            </span>
-          </Html>
+          {world === "circuit" && item.id === "notebook" ? (
+            <CircuitNotebook />
+          ) : (
+            item.id !== "pi" &&
+            !(world === "circuit" && item.id === "signal") && (
+              <ArtifactModel id={item.id} />
+            )
+          )}
+          {world !== "circuit" && (
+            <Html
+              position={[0, item.id === "cafe" ? 4.3 : 1.1, 0]}
+              center
+              distanceFactor={14}
+              occlude
+              style={{ pointerEvents: "none" }}
+            >
+              <span className="mesh-label">
+                {artifacts[item.id].name}
+                <span>↗</span>
+              </span>
+            </Html>
+          )}
         </group>
       ))}
     </group>

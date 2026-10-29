@@ -26,6 +26,7 @@ export const routeHash = (route: Route) => `#/${route.world}/${route.entry}`;
 export const destination = (world: WorldId, artifact: ArtifactId) =>
   graph[`${world}:${artifact}`];
 export function commitRoute(route: Route) {
+  window.dispatchEvent(new Event("universe:before-navigate"));
   if (location.hash !== routeHash(route))
     history.pushState(null, "", routeHash(route));
   window.dispatchEvent(new Event("universe:navigate"));

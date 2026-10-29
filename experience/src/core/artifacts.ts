@@ -28,12 +28,10 @@ export const placements: Record<WorldId, Placement[]> = {
     { id: "cafe", position: [0, 1.5, -23], label: "The café at the bend" },
   ],
   circuit: [
-    { id: "signal", position: [-3.2, 1.4, -5], label: "Follow a signal" },
+    { id: "signal", position: [13.5, 1.65, -18], label: "Follow a signal" },
     {
       id: "notebook",
-      position: [3, 1.25, -11],
-      rotation: [0, -0.4, 0],
-      scale: 1.8,
+      position: [112, 1.2, -12],
       label: "A familiar notebook",
     },
     {

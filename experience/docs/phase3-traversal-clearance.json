@@ -1,0 +1,40 @@
+{
+  "designBaseline": "737ae7f",
+  "body": {
+    "radius": 0.6,
+    "bottom": 0.2,
+    "top": 3.2,
+    "curveError": 0.015
+  },
+  "obstacleCount": 118,
+  "junction": 23.447735710994753,
+  "routes": {
+    "workshop": {
+      "length": 41.79223672341059,
+      "segments": 70,
+      "minConservativeHorizontalClearance": 2.999999523162842,
+      "bodyRadius": 0.6,
+      "reservedCurveMargin": 0.015,
+      "nominalCruiseSeconds": 2.3217909290783663,
+      "passes": true
+    },
+    "notebook": {
+      "length": 190.78347996606976,
+      "segments": 121,
+      "minConservativeHorizontalClearance": 2.999999523162842,
+      "bodyRadius": 0.6,
+      "reservedCurveMargin": 0.015,
+      "nominalCruiseSeconds": 10.599082220337209,
+      "passes": true
+    }
+  },
+  "sourceHashes": {
+    "src/pi/PiBoard.tsx": "28cd9d6b8f575d70dece5de9249324b84f59f760a008df5732241605fa2963eb",
+    "src/pi/layout.ts": "5a02d9989b6c30b82be3647e0af46c2b5b89fe2b0b09f8d798d7885fd832dd66",
+    "src/pi/ScaleBoard.tsx": "7c85b83e8c23da2fd9a58ed23127064e80792fa0e4db71fda9e870e8ec2bec05",
+    "src/pi/scaleJourney.ts": "c2a9aadf366457620d12779fff9da5361718e9782ed851b1a283394e187661a8",
+    "src/circuit/traversal.ts": "afef6262dd63c9180de0a765564bd8969afc25e07c5f99438647e95f7de0db08"
+  },
+  "method": "Continuous swept horizontal disk against vertically overlapping conservative component bounds. This over-approximates the upright capsule; all controller segments are tested, not only center rays. Curves use certified chord samples with extra deviation margin.",
+  "limitations": "Static guided paths, not free roaming or dynamic rigid-body physics. Rounded component boxes are conservative. Bounds must be maintained if authoritative geometry changes. Nominal cruise time excludes acceleration, stops and low-frame-rate dt clamping."
+}

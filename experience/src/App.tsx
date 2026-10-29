@@ -11,7 +11,7 @@ import {
 import gsap from "gsap";
 import { JourneyLease } from "./core/journeyLease";
 import { traceScaleMark } from "./core/traceScale";
-import { worldModules } from './core/worldModules';
+import { worldModules } from "./core/worldModules";
 import { artifacts } from "./core/artifacts";
 import {
   commitRoute,
@@ -24,6 +24,14 @@ import { worlds } from "./core/worlds";
 import { records } from "./content/records";
 import { transitionFor } from "./core/transitions";
 import type { ArtifactId, Journey, Route } from "./core/types";
+import {
+  paths,
+  restoreTravel,
+  selectBranch,
+  snapshot,
+  stopTravel,
+} from "./circuit/traversal";
+import { SignalProvider, useSignal } from "./circuit/Signal";
 
 const Scene = lazy(() => import("./scene/Scene"));
 class RenderBoundary extends Component<
@@ -51,9 +59,7 @@ function useReducedMotion() {
   return reduced;
 }
 function SignalLab() {
-  const [gate, setGate] = useState(true);
-  const [branch, setBranch] = useState("A");
-  const [result, setResult] = useState("Ready to send.");
+  const { gate, setGate, branch, setBranch, result, send } = useSignal();
   return (
     <div className="lab">
       <div className="circuit-diagram" aria-hidden="true">
@@ -69,7 +75,6 @@ function SignalLab() {
           checked={gate}
           onChange={(e) => {
             setGate(e.target.checked);
-            setResult("Circuit changed. Send another pulse.");
           }}
         />{" "}
         Gate open
@@ -84,23 +89,13 @@ function SignalLab() {
               checked={branch === value}
               onChange={() => {
                 setBranch(value);
-                setResult("Circuit changed. Send another pulse.");
               }}
             />{" "}
             {value}
           </label>
         ))}
       </fieldset>
-      <button
-        className="primary"
-        onClick={() =>
-          setResult(
-            gate
-              ? `Pulse received at output ${branch}.`
-              : "Pulse stopped at the closed gate.",
-          )
-        }
-      >
+      <button className="primary" onClick={send}>
         Send a pulse ↗
       </button>
       <p role="status">{result}</p>
@@ -108,7 +103,7 @@ function SignalLab() {
   );
 }
 
-export default function App() {
+function App() {
   const [route, setRoute] = useState<Route>(() => parseRoute(location.hash));
   const [hover, setHover] = useState<string | null>(null);
   const [map, setMap] = useState(false);
@@ -125,6 +120,13 @@ export default function App() {
   const handoff = useRef(false);
   const steer = useRef(0);
   const inspection = useRef(false);
+  const circuit = useRef(
+    restoreTravel(history.state?.circuitTravel, route.entry),
+  );
+  const currentWorld = useRef(route.world);
+  currentWorld.current = route.world;
+  const circuitStatus = useRef<HTMLElement>(null);
+  const movementBar = useRef<HTMLElement>(null);
   const [inspecting, setInspecting] = useState(false);
   const tween = useRef<gsap.core.Timeline | null>(null);
   const veil = useRef<HTMLDivElement>(null);
@@ -136,6 +138,12 @@ export default function App() {
   const touchGesture = useRef({ y: 0, moved: false });
 
   const cancel = useCallback(() => {
+    stopTravel(circuit.current);
+    if (currentWorld.current === "circuit") {
+      progress.current =
+        circuit.current.distance / paths[circuit.current.branch].length;
+      setProgressDisplay(progress.current);
+    }
     lease.current.cancel();
     handoff.current = false;
     inspection.current = false;
@@ -153,6 +161,13 @@ export default function App() {
     document.body.style.cursor = "";
   }, []);
   useEffect(() => {
+    const saveTravel = () => {
+      if (currentWorld.current === "circuit")
+        history.replaceState(
+          { ...history.state, circuitTravel: snapshot(circuit.current) },
+          "",
+        );
+    };
     const sync = () => {
       const carrying = handoff.current;
       cancel();
@@ -161,6 +176,10 @@ export default function App() {
         carrying && next.world === "circuit" && next.entry === "board";
       steer.current = 0;
       progress.current = worlds[next.world].entries[next.entry] ?? 0;
+      circuit.current = restoreTravel(history.state?.circuitTravel, next.entry);
+      if (next.world === "circuit")
+        progress.current =
+          circuit.current.distance / paths[circuit.current.branch].length;
       setProgressDisplay(progress.current);
       setRoute(next);
       setPanel(null);
@@ -170,6 +189,7 @@ export default function App() {
     if (location.hash !== routeHash(parseRoute(location.hash)))
       history.replaceState(null, "", routeHash(parseRoute(location.hash)));
     window.addEventListener("popstate", sync);
+    window.addEventListener("universe:before-navigate", saveTravel);
     window.addEventListener("hashchange", sync);
     window.addEventListener("universe:navigate", sync);
     const contextLost = () => {
@@ -180,6 +200,7 @@ export default function App() {
     return () => {
       cancel();
       window.removeEventListener("popstate", sync);
+      window.removeEventListener("universe:before-navigate", saveTravel);
       window.removeEventListener("hashchange", sync);
       window.removeEventListener("universe:navigate", sync);
       window.removeEventListener("universe:context-lost", contextLost);
@@ -201,10 +222,37 @@ export default function App() {
   useEffect(() => {
     if (reducedMotion) cancel();
   }, [reducedMotion, cancel]);
+  useEffect(() => {
+    if (route.world !== "circuit") return;
+    const timer = setInterval(() => {
+      const s = circuit.current;
+      if (circuitStatus.current)
+        circuitStatus.current.textContent = `${s.branch === "workshop" ? "Workshop trace" : "Connector detour"} · ${Math.round(s.distance)} / ${Math.round(paths[s.branch].length)} units${s.pending ? " · Returning to junction" : ""}`;
+      if (movementBar.current)
+        movementBar.current.style.width = `${Number(((s.distance / paths[s.branch].length) * 100).toFixed(3))}%`;
+    }, 150);
+    const pause = () => {
+      if (document.hidden) cancel();
+    };
+    const blur = () => cancel();
+    document.addEventListener("visibilitychange", pause);
+    window.addEventListener("blur", blur);
+    return () => {
+      clearInterval(timer);
+      document.removeEventListener("visibilitychange", pause);
+      window.removeEventListener("blur", blur);
+    };
+  }, [route.world, cancel]);
 
   const step = useCallback(
     (amount: number) => {
       if (busy || panel || map || inspection.current) return;
+      if (currentWorld.current === "circuit" && circuit.current.pending) {
+        circuit.current.pending = null;
+        progress.current =
+          circuit.current.distance / paths[circuit.current.branch].length;
+      }
+      circuit.current.stopped = false;
       progress.current = Math.max(0, Math.min(1, progress.current + amount));
       setProgressDisplay(progress.current);
     },
@@ -213,10 +261,22 @@ export default function App() {
   const branch = useCallback(
     (direction: number) => {
       if (busy || panel || map || route.world !== "circuit") return;
-      steer.current = Math.max(-6, Math.min(6, steer.current + direction * 2));
+      circuit.current.heading = Math.max(
+        -1,
+        Math.min(1, circuit.current.heading + direction * 0.3),
+      );
+      sceneArea.current?.focus({ preventScroll: true });
     },
     [busy, panel, map, route.world],
   );
+  const chooseTrace = (name: "workshop" | "notebook") => {
+    if (busy || panel || map) return;
+    selectBranch(circuit.current, name);
+    progress.current =
+      circuit.current.target / paths[circuit.current.branch].length;
+    setProgressDisplay(progress.current);
+    sceneArea.current?.focus({ preventScroll: true });
+  };
   useEffect(() => {
     const surface = sceneArea.current;
     if (!surface) return;
@@ -297,6 +357,16 @@ export default function App() {
   const activate = useCallback(
     (id: ArtifactId) => {
       if (busy || lease.current.running) return;
+      if (route.world === "circuit") {
+        stopTravel(circuit.current);
+        progress.current =
+          circuit.current.distance / paths[circuit.current.branch].length;
+        setProgressDisplay(progress.current);
+        history.replaceState(
+          { ...history.state, circuitTravel: snapshot(circuit.current) },
+          "",
+        );
+      }
       const next = destination(route.world, id);
       if (!next) {
         if (id === "cafe" || id === "signal") setPanel(id);
@@ -429,6 +499,7 @@ export default function App() {
       </a>
       <div
         className="scene"
+        tabIndex={0}
         ref={sceneArea}
         onClickCapture={(e) => {
           if (touchGesture.current.moved) {
@@ -459,6 +530,7 @@ export default function App() {
                   handoff,
                   steer,
                   inspection,
+                  circuit,
                   reducedMotion,
                 }}
                 fallback={fallback}
@@ -571,7 +643,12 @@ export default function App() {
           <span>
             {reducedMotion ? "STEP TO EXPLORE" : "SCROLL TO WANDER"}
             <i>
-              <b style={{ width: `${progressDisplay * 100}%` }} />
+              <b
+                ref={movementBar}
+                style={{
+                  width: `${route.world === "circuit" ? Number(((circuit.current.distance / paths[circuit.current.branch].length) * 100).toFixed(3)) : progressDisplay * 100}%`,
+                }}
+              />
             </i>
           </span>
           <button
@@ -611,23 +688,56 @@ export default function App() {
         </div>
       )}
       {route.world === "circuit" && (
-        <div className="branch-controls" aria-label="Explore circuit branches">
-          <button
-            aria-label="Explore left branch"
-            disabled={busy}
-            onClick={() => branch(-1)}
-          >
-            ←
-          </button>
-          <span>EXPLORE THE TRACES</span>
-          <button
-            aria-label="Explore right branch"
-            disabled={busy}
-            onClick={() => branch(1)}
-          >
-            →
-          </button>
-        </div>
+        <details
+          className="branch-controls"
+          aria-label="Explore circuit branches"
+        >
+          <summary>Trace controls</summary>
+          <div>
+            <button
+              aria-label="Explore left branch"
+              disabled={busy}
+              onClick={() => branch(-1)}
+            >
+              ←
+            </button>
+            <span>EXPLORE THE TRACES</span>
+            <button
+              aria-label="Explore right branch"
+              disabled={busy}
+              onClick={() => branch(1)}
+            >
+              →
+            </button>
+            <button onClick={() => chooseTrace("workshop")} disabled={busy}>
+              Workshop trace
+            </button>
+            <button onClick={() => chooseTrace("notebook")} disabled={busy}>
+              Connector detour
+            </button>
+            <button
+              onClick={() => {
+                cancel();
+                sceneArea.current?.focus({ preventScroll: true });
+              }}
+            >
+              Stop movement
+            </button>
+            <button
+              onClick={() => {
+                circuit.current.heading = 0;
+                sceneArea.current?.focus({ preventScroll: true });
+              }}
+            >
+              Center view
+            </button>
+            <small ref={circuitStatus} aria-live="off" />
+            <small>
+              Scroll or ↑↓ to move, ←→ to look. End follows the selected trace;
+              Escape stops. A different trace returns through the junction.
+            </small>
+          </div>
+        </details>
       )}
       <details className="discoveries" id="discoveries" ref={discoveriesRef}>
         <summary>
@@ -730,5 +840,12 @@ export default function App() {
           : `You are in ${world.title}.`}
       </span>
     </main>
+  );
+}
+export default function Experience() {
+  return (
+    <SignalProvider>
+      <App />
+    </SignalProvider>
   );
 }
