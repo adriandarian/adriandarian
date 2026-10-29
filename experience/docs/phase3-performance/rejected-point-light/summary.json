@@ -1,0 +1,2738 @@
+{
+  "date": "2026-10-29T03:27:36.084Z",
+  "method": "Instrumented production build with local sourcemaps, CDP timeline + 1ms V8 sampling + WebGL synchronous call timing; Windows D3D11; mobile CPU emulation uses desktop GPU. Profiling overhead means these are diagnostic runs, not replacement benchmark claims.",
+  "runs": [
+    {
+      "name": "desktop-cold-destination",
+      "cpuThrottle": 1,
+      "renderer": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "window": {
+        "fromCommitMs": -10,
+        "toFirstCircuitFrameMs": 300
+      },
+      "marks": [
+        {
+          "name": "scale:activation",
+          "startTime": 3619.5
+        },
+        {
+          "name": "scale:module-ready",
+          "startTime": 3647.1999999955297
+        },
+        {
+          "name": "scale:camera-arrived",
+          "startTime": 7828.69999999553
+        },
+        {
+          "name": "scale:route-commit-before",
+          "startTime": 7828.79999999702
+        },
+        {
+          "name": "scale:route-commit-after",
+          "startTime": 7829.89999999851
+        },
+        {
+          "name": "scale:circuit:world-mounted",
+          "startTime": 7857.5
+        },
+        {
+          "name": "scale:circuit:first-frame",
+          "startTime": 7863.10000000149
+        }
+      ],
+      "frameMs": {
+        "max": 166.70000000000073,
+        "samples": [
+          {
+            "time": 7740.9,
+            "delta": 16.699999999999818
+          },
+          {
+            "time": 7757.5,
+            "delta": 16.600000000000364
+          },
+          {
+            "time": 7774.1,
+            "delta": 16.600000000000364
+          },
+          {
+            "time": 7790.9,
+            "delta": 16.799999999999272
+          },
+          {
+            "time": 7807.5,
+            "delta": 16.600000000000364
+          },
+          {
+            "time": 7824.2,
+            "delta": 16.699999999999818
+          },
+          {
+            "time": 7840.9,
+            "delta": 16.699999999999818
+          },
+          {
+            "time": 8007.6,
+            "delta": 166.70000000000073
+          },
+          {
+            "time": 8024.2,
+            "delta": 16.599999999999454
+          },
+          {
+            "time": 8040.8,
+            "delta": 16.600000000000364
+          },
+          {
+            "time": 8057.5,
+            "delta": 16.699999999999818
+          },
+          {
+            "time": 8074.1,
+            "delta": 16.600000000000364
+          },
+          {
+            "time": 8090.9,
+            "delta": 16.799999999999272
+          },
+          {
+            "time": 8107.5,
+            "delta": 16.600000000000364
+          },
+          {
+            "time": 8124.2,
+            "delta": 16.699999999999818
+          },
+          {
+            "time": 8140.8,
+            "delta": 16.600000000000364
+          },
+          {
+            "time": 8157.5,
+            "delta": 16.699999999999818
+          },
+          {
+            "time": 8174.1,
+            "delta": 16.600000000000364
+          },
+          {
+            "time": 8190.8,
+            "delta": 16.699999999999818
+          },
+          {
+            "time": 8207.5,
+            "delta": 16.699999999999818
+          },
+          {
+            "time": 8224.2,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 8240.8,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 8257.5,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 8274.2,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 8290.8,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 8307.5,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 8324.2,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 8340.8,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 8357.5,
+            "delta": 16.700000000000728
+          }
+        ]
+      },
+      "glCalls": [
+        {
+          "name": "shaderSource",
+          "start": 7865.69999999553,
+          "duration": 0.20000000298023224
+        },
+        {
+          "name": "compileShader",
+          "start": 7865.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "shaderSource",
+          "start": 7865.89999999851,
+          "duration": 0.3999999985098839
+        },
+        {
+          "name": "compileShader",
+          "start": 7866.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "linkProgram",
+          "start": 7866.29999999702,
+          "duration": 0.10000000149011612
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 7866.5,
+          "duration": 69.19999999552965
+        },
+        {
+          "name": "getShaderInfoLog",
+          "start": 7935.69999999553,
+          "duration": 0.30000000447034836
+        },
+        {
+          "name": "getShaderInfoLog",
+          "start": 7936,
+          "duration": 0.19999999552965164
+        },
+        {
+          "name": "getProgramParameter",
+          "start": 7936.19999999553,
+          "duration": 0.4000000059604645
+        },
+        {
+          "name": "getProgramParameter",
+          "start": 7936.60000000149,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.60000000149,
+          "duration": 0.09999999403953552
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.79999999702,
+          "duration": 0.10000000149011612
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 7936.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getProgramParameter",
+          "start": 7937,
+          "duration": 0
+        },
+        {
+          "name": "shaderSource",
+          "start": 7941,
+          "duration": 0.19999999552965164
+        },
+        {
+          "name": "compileShader",
+          "start": 7941.19999999553,
+          "duration": 0
+        },
+        {
+          "name": "shaderSource",
+          "start": 7941.19999999553,
+          "duration": 0.6000000014901161
+        },
+        {
+          "name": "compileShader",
+          "start": 7941.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "linkProgram",
+          "start": 7941.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 7941.79999999702,
+          "duration": 62.399999998509884
+        },
+        {
+          "name": "getShaderInfoLog",
+          "start": 8004.19999999553,
+          "duration": 0.30000000447034836
+        },
+        {
+          "name": "getShaderInfoLog",
+          "start": 8004.5,
+          "duration": 0.29999999701976776
+        },
+        {
+          "name": "getProgramParameter",
+          "start": 8004.89999999851,
+          "duration": 0.20000000298023224
+        },
+        {
+          "name": "getProgramParameter",
+          "start": 8005.10000000149,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.10000000149,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.10000000149,
+          "duration": 0.09999999403953552
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.19999999553,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.19999999553,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.19999999553,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.19999999553,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.19999999553,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.19999999553,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.19999999553,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.19999999553,
+          "duration": 0.10000000149011612
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.29999999702,
+          "duration": 0.10000000149011612
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.39999999851,
+          "duration": 0.10000000149011612
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.5,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.5,
+          "duration": 0.10000000149011612
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 8005.60000000149,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 8005.60000000149,
+          "duration": 0
+        },
+        {
+          "name": "getProgramParameter",
+          "start": 8005.60000000149,
+          "duration": 0
+        }
+      ],
+      "topCpu": [
+        {
+          "name": "getProgramInfoLog",
+          "source": "",
+          "sampledMs": 131.29800000000003
+        },
+        {
+          "name": "(idle)",
+          "source": "",
+          "sampledMs": 114.674
+        },
+        {
+          "name": "(program)",
+          "source": "",
+          "sampledMs": 33.51100000000001
+        },
+        {
+          "name": "(garbage collector)",
+          "source": "",
+          "sampledMs": 8.428
+        },
+        {
+          "name": "removeChild",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 4.2379999999999995
+        },
+        {
+          "name": "focus",
+          "source": "",
+          "sampledMs": 4.109999999999999
+        },
+        {
+          "name": "releaseMaterialProgramReferences",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 3.105
+        },
+        {
+          "name": "markUniformsLightsNeedsUpdate",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 2.616
+        },
+        {
+          "name": "detach",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 2.592
+        },
+        {
+          "name": "setProgram",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 2.55
+        },
+        {
+          "name": "mark",
+          "source": "",
+          "sampledMs": 2.296
+        },
+        {
+          "name": "Mt",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 1.738
+        },
+        {
+          "name": "ma",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 1.613
+        },
+        {
+          "name": "Yc",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 1.591
+        },
+        {
+          "name": "Controller",
+          "source": "../../src/circuit/Controller.tsx",
+          "sampledMs": 1.557
+        },
+        {
+          "name": "shaderSource",
+          "source": "",
+          "sampledMs": 1.527
+        },
+        {
+          "name": "addVertex",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 1.517
+        },
+        {
+          "name": "copy",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 1.5099999999999998
+        },
+        {
+          "name": "resolveIncludes",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 1.507
+        },
+        {
+          "name": "peek",
+          "source": "../../node_modules/scheduler/cjs/scheduler.production.js",
+          "sampledMs": 1.483
+        },
+        {
+          "name": "renderBufferDirect",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 1.477
+        },
+        {
+          "name": "setupVertexAttributes",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 1.434
+        },
+        {
+          "name": "deleteVertexArray",
+          "source": "",
+          "sampledMs": 1.428
+        },
+        {
+          "name": "swapReconstructedInstances",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 1.315
+        },
+        {
+          "name": "prototype.<computed>",
+          "source": "",
+          "sampledMs": 1.302
+        }
+      ],
+      "tasks": [
+        {
+          "name": "RunTask",
+          "ms": 153.854,
+          "startFromCommitMs": 29.27200000298035,
+          "pid": 12212,
+          "tid": 43648
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 146.419,
+          "startFromCommitMs": 33.9280000029803,
+          "pid": 12212,
+          "tid": 43648
+        },
+        {
+          "name": "RunTask",
+          "ms": 68.787,
+          "startFromCommitMs": 37.862000002980494,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "Scheduler::RunTask",
+          "ms": 68.776,
+          "startFromCommitMs": 37.8660000029804,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "RunTask",
+          "ms": 61.89,
+          "startFromCommitMs": 113.20200000298064,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "Scheduler::RunTask",
+          "ms": 61.873,
+          "startFromCommitMs": 113.21100000298065,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "RunTask",
+          "ms": 19.199,
+          "startFromCommitMs": 9.761000002979927,
+          "pid": 12212,
+          "tid": 43648
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 19.049,
+          "startFromCommitMs": 9.782000002980567,
+          "pid": 12212,
+          "tid": 43648
+        },
+        {
+          "name": "RunTask",
+          "ms": 11.46,
+          "startFromCommitMs": 187.71700000298006,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "Scheduler::RunTask",
+          "ms": 11.452,
+          "startFromCommitMs": 187.71800000298026,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "RunTask",
+          "ms": 5.703,
+          "startFromCommitMs": -3.7749999970201316,
+          "pid": 12212,
+          "tid": 43648
+        },
+        {
+          "name": "RunTask",
+          "ms": 5.238,
+          "startFromCommitMs": 203.09700000298017,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "Scheduler::RunTask",
+          "ms": 5.229,
+          "startFromCommitMs": 203.09800000298037,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "RunTask",
+          "ms": 5.188,
+          "startFromCommitMs": 183.22100000297996,
+          "pid": 12212,
+          "tid": 43648
+        },
+        {
+          "name": "RunTask",
+          "ms": 5.124,
+          "startFromCommitMs": 3.9910000029803996,
+          "pid": 12212,
+          "tid": 43648
+        }
+      ]
+    },
+    {
+      "name": "desktop-warm-destination",
+      "cpuThrottle": 1,
+      "renderer": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "window": {
+        "fromCommitMs": -10,
+        "toFirstCircuitFrameMs": 300
+      },
+      "marks": [
+        {
+          "name": "scale:activation",
+          "startTime": 13086.5
+        },
+        {
+          "name": "scale:module-ready",
+          "startTime": 13088.5
+        },
+        {
+          "name": "scale:camera-arrived",
+          "startTime": 17295.29999999702
+        },
+        {
+          "name": "scale:route-commit-before",
+          "startTime": 17295.29999999702
+        },
+        {
+          "name": "scale:route-commit-after",
+          "startTime": 17296
+        },
+        {
+          "name": "scale:circuit:world-mounted",
+          "startTime": 17312.5
+        },
+        {
+          "name": "scale:circuit:first-frame",
+          "startTime": 17316.10000000149
+        }
+      ],
+      "frameMs": {
+        "max": 16.80000000000291,
+        "samples": [
+          {
+            "time": 17207.1,
+            "delta": 16.69999999999709
+          },
+          {
+            "time": 17223.8,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17240.5,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17257.1,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 17273.9,
+            "delta": 16.80000000000291
+          },
+          {
+            "time": 17290.5,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 17307.1,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 17323.8,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17340.5,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17357.1,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 17373.8,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17390.5,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17407.1,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 17423.8,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17440.5,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17457.1,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 17473.8,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17490.5,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17507.2,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17523.8,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 17540.4,
+            "delta": 16.600000000002183
+          },
+          {
+            "time": 17557.1,
+            "delta": 16.69999999999709
+          },
+          {
+            "time": 17573.8,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17590.4,
+            "delta": 16.600000000002183
+          },
+          {
+            "time": 17607.1,
+            "delta": 16.69999999999709
+          },
+          {
+            "time": 17623.8,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17640.4,
+            "delta": 16.600000000002183
+          },
+          {
+            "time": 17657.1,
+            "delta": 16.69999999999709
+          },
+          {
+            "time": 17673.8,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17690.5,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17707.1,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 17723.8,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17740.4,
+            "delta": 16.600000000002183
+          },
+          {
+            "time": 17757.2,
+            "delta": 16.799999999999272
+          },
+          {
+            "time": 17773.8,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 17790.5,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 17807.1,
+            "delta": 16.599999999998545
+          }
+        ]
+      },
+      "glCalls": [],
+      "topCpu": [
+        {
+          "name": "(idle)",
+          "source": "",
+          "sampledMs": 270.6669999999999
+        },
+        {
+          "name": "(program)",
+          "source": "",
+          "sampledMs": 36.08699999999999
+        },
+        {
+          "name": "removeChild",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 3.499
+        },
+        {
+          "name": "Di",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 1.655
+        },
+        {
+          "name": "refreshFogUniforms",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 1.636
+        },
+        {
+          "name": "xt",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 1.567
+        },
+        {
+          "name": "(anonymous)",
+          "source": "../../node_modules/@react-three/drei/core/RoundedBox.js",
+          "sampledMs": 1.55
+        },
+        {
+          "name": "isEarHashed",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 1.55
+        },
+        {
+          "name": "deallocateMaterial",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 1.514
+        },
+        {
+          "name": "deleteVertexArray",
+          "source": "",
+          "sampledMs": 1.507
+        },
+        {
+          "name": "normalizeNormals",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 1.484
+        },
+        {
+          "name": "focus",
+          "source": "",
+          "sampledMs": 1.362
+        },
+        {
+          "name": "mark",
+          "source": "",
+          "sampledMs": 1.218
+        },
+        {
+          "name": "xr",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 1.165
+        },
+        {
+          "name": "multiplyMatrices",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 1.148
+        },
+        {
+          "name": "completeWork",
+          "source": "../../node_modules/react-dom/cjs/react-dom-client.production.js",
+          "sampledMs": 0.838
+        },
+        {
+          "name": "releaseStatesOfGeometry",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 0.707
+        },
+        {
+          "name": "createBuffer",
+          "source": "",
+          "sampledMs": 0.514
+        },
+        {
+          "name": "(anonymous)",
+          "source": "",
+          "sampledMs": 0.48
+        },
+        {
+          "name": "renderBufferDirect",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 0.469
+        },
+        {
+          "name": "(anonymous)",
+          "source": "../../src/pi/PiBoard.tsx",
+          "sampledMs": 0.08
+        },
+        {
+          "name": "(anonymous)",
+          "source": "../../src/scene/Scene.tsx",
+          "sampledMs": 0.058
+        },
+        {
+          "name": "requestAnimationFrame",
+          "source": "",
+          "sampledMs": 0.045
+        }
+      ],
+      "tasks": [
+        {
+          "name": "RunTask",
+          "ms": 15.204,
+          "startFromCommitMs": 4.09800000298128,
+          "pid": 12212,
+          "tid": 43648
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 14.969,
+          "startFromCommitMs": 4.11900000298192,
+          "pid": 12212,
+          "tid": 43648
+        },
+        {
+          "name": "RunTask",
+          "ms": 5.341,
+          "startFromCommitMs": -3.7779999970189238,
+          "pid": 12212,
+          "tid": 43648
+        },
+        {
+          "name": "RunTask",
+          "ms": 5,
+          "startFromCommitMs": 23.956000002981455,
+          "pid": 12212,
+          "tid": 43648
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 4.907,
+          "startFromCommitMs": 23.988000002980698,
+          "pid": 12212,
+          "tid": 43648
+        },
+        {
+          "name": "RunTask",
+          "ms": 4.399,
+          "startFromCommitMs": 19.509000002981338,
+          "pid": 12212,
+          "tid": 43648
+        },
+        {
+          "name": "RunTask",
+          "ms": 4.272,
+          "startFromCommitMs": 279.53600000297956,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "Scheduler::RunTask",
+          "ms": 4.265,
+          "startFromCommitMs": 279.5410000029806,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 3.346,
+          "startFromCommitMs": -3.5959999970182253,
+          "pid": 12212,
+          "tid": 43648
+        },
+        {
+          "name": "RunTask",
+          "ms": 3.326,
+          "startFromCommitMs": 230.5550000029798,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "Scheduler::RunTask",
+          "ms": 3.315,
+          "startFromCommitMs": 230.56100000298102,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "RunTask",
+          "ms": 3.101,
+          "startFromCommitMs": 164.1780000029794,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "Scheduler::RunTask",
+          "ms": 3.095,
+          "startFromCommitMs": 164.1790000029796,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "RunTask",
+          "ms": 2.5,
+          "startFromCommitMs": 197.96300000297924,
+          "pid": 48756,
+          "tid": 50456
+        },
+        {
+          "name": "Scheduler::RunTask",
+          "ms": 2.47,
+          "startFromCommitMs": 197.98300000297968,
+          "pid": 48756,
+          "tid": 50456
+        }
+      ]
+    },
+    {
+      "name": "mobile-class-cold-destination",
+      "cpuThrottle": 4,
+      "renderer": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "window": {
+        "fromCommitMs": -10,
+        "toFirstCircuitFrameMs": 300
+      },
+      "marks": [
+        {
+          "name": "scale:activation",
+          "startTime": 5780.5
+        },
+        {
+          "name": "scale:module-ready",
+          "startTime": 5958.29999999702
+        },
+        {
+          "name": "scale:camera-arrived",
+          "startTime": 9984.69999999553
+        },
+        {
+          "name": "scale:route-commit-before",
+          "startTime": 9985.09999999404
+        },
+        {
+          "name": "scale:route-commit-after",
+          "startTime": 9992.19999999553
+        },
+        {
+          "name": "scale:circuit:world-mounted",
+          "startTime": 10186.59999999404
+        },
+        {
+          "name": "scale:circuit:first-frame",
+          "startTime": 10197.59999999404
+        }
+      ],
+      "frameMs": {
+        "max": 216.70000000000073,
+        "samples": [
+          {
+            "time": 9899.1,
+            "delta": 16.80000000000109
+          },
+          {
+            "time": 9932.4,
+            "delta": 33.29999999999927
+          },
+          {
+            "time": 9949.1,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 9982.4,
+            "delta": 33.29999999999927
+          },
+          {
+            "time": 10049,
+            "delta": 66.60000000000036
+          },
+          {
+            "time": 10265.7,
+            "delta": 216.70000000000073
+          },
+          {
+            "time": 10282.4,
+            "delta": 16.69999999999891
+          },
+          {
+            "time": 10299.1,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 10332.4,
+            "delta": 33.29999999999927
+          },
+          {
+            "time": 10349.1,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 10365.7,
+            "delta": 16.600000000000364
+          },
+          {
+            "time": 10382.4,
+            "delta": 16.69999999999891
+          },
+          {
+            "time": 10399,
+            "delta": 16.600000000000364
+          },
+          {
+            "time": 10415.7,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 10432.3,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 10449,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 10465.7,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 10482.3,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 10499,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 10515.7,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 10532.4,
+            "delta": 16.69999999999891
+          },
+          {
+            "time": 10549.1,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 10565.7,
+            "delta": 16.600000000000364
+          },
+          {
+            "time": 10582.3,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 10599,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 10615.7,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 10632.4,
+            "delta": 16.69999999999891
+          },
+          {
+            "time": 10649,
+            "delta": 16.600000000000364
+          },
+          {
+            "time": 10665.7,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 10682.4,
+            "delta": 16.69999999999891
+          }
+        ]
+      },
+      "glCalls": [
+        {
+          "name": "shaderSource",
+          "start": 10212.5,
+          "duration": 1.2999999970197678
+        },
+        {
+          "name": "compileShader",
+          "start": 10214,
+          "duration": 0
+        },
+        {
+          "name": "shaderSource",
+          "start": 10214,
+          "duration": 1.7999999970197678
+        },
+        {
+          "name": "compileShader",
+          "start": 10215.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "linkProgram",
+          "start": 10216,
+          "duration": 0
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 10216.69999999553,
+          "duration": 7.300000004470348
+        },
+        {
+          "name": "getShaderInfoLog",
+          "start": 10224,
+          "duration": 1
+        },
+        {
+          "name": "getShaderInfoLog",
+          "start": 10225.09999999404,
+          "duration": 0.20000000298023224
+        },
+        {
+          "name": "getProgramParameter",
+          "start": 10225.29999999702,
+          "duration": 0.6000000014901161
+        },
+        {
+          "name": "getProgramParameter",
+          "start": 10226.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10226.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10226.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10226.29999999702,
+          "duration": 0.20000000298023224
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10226.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10226.5,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10226.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10226.5,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10226.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10226.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10226.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10226.89999999851,
+          "duration": 0.19999999552965164
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10227.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10227.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10227.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10227.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10227.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10227.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10227.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10227.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10227.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10227.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10227.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10227.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10227.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10227.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10227.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10228.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10228.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10228.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10228.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10228.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10228.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10228.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10228.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10228.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10228.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10228.29999999702,
+          "duration": 0.10000000149011612
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10228.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10228.39999999851,
+          "duration": 0.19999999552965164
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10228.59999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10228.59999999404,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10228.59999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10228.59999999404,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10228.59999999404,
+          "duration": 0
+        },
+        {
+          "name": "getProgramParameter",
+          "start": 10228.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "shaderSource",
+          "start": 10238.5,
+          "duration": 0.5999999940395355
+        },
+        {
+          "name": "compileShader",
+          "start": 10239.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "shaderSource",
+          "start": 10239.39999999851,
+          "duration": 2.100000001490116
+        },
+        {
+          "name": "compileShader",
+          "start": 10241.59999999404,
+          "duration": 0
+        },
+        {
+          "name": "linkProgram",
+          "start": 10241.59999999404,
+          "duration": 0
+        },
+        {
+          "name": "getProgramInfoLog",
+          "start": 10242,
+          "duration": 7
+        },
+        {
+          "name": "getShaderInfoLog",
+          "start": 10249.19999999553,
+          "duration": 0.6000000014901161
+        },
+        {
+          "name": "getShaderInfoLog",
+          "start": 10249.79999999702,
+          "duration": 0.3999999985098839
+        },
+        {
+          "name": "getProgramParameter",
+          "start": 10250.39999999851,
+          "duration": 0.19999999552965164
+        },
+        {
+          "name": "getProgramParameter",
+          "start": 10250.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10250.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10250.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10250.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10251.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10251.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10251.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10251.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10251.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10251.09999999404,
+          "duration": 0.20000000298023224
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10251.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10251.39999999851,
+          "duration": 0.10000000149011612
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10251.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10251.59999999404,
+          "duration": 0.10000000149011612
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10251.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10251.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10251.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10251.69999999553,
+          "duration": 0.20000000298023224
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10251.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10251.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10251.89999999851,
+          "duration": 0.19999999552965164
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10252.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10252.09999999404,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10252.19999999553,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10252.19999999553,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10252.19999999553,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10252.19999999553,
+          "duration": 0.10000000149011612
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10252.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10252.29999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10252.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10252.39999999851,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10252.39999999851,
+          "duration": 0.10000000149011612
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10252.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10252.5,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10252.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10252.5,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10252.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10252.5,
+          "duration": 0
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10252.5,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10252.5,
+          "duration": 0.19999999552965164
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10252.69999999553,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10252.69999999553,
+          "duration": 0.10000000149011612
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10252.79999999702,
+          "duration": 0
+        },
+        {
+          "name": "getActiveUniform",
+          "start": 10252.79999999702,
+          "duration": 0.10000000149011612
+        },
+        {
+          "name": "getUniformLocation",
+          "start": 10252.89999999851,
+          "duration": 0
+        },
+        {
+          "name": "getProgramParameter",
+          "start": 10252.89999999851,
+          "duration": 0
+        }
+      ],
+      "topCpu": [
+        {
+          "name": "(program)",
+          "source": "",
+          "sampledMs": 175.47300000000004
+        },
+        {
+          "name": "(idle)",
+          "source": "",
+          "sampledMs": 29.434
+        },
+        {
+          "name": "removeChild",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 25.620999999999995
+        },
+        {
+          "name": "getProgramInfoLog",
+          "source": "",
+          "sampledMs": 13.736
+        },
+        {
+          "name": "renderBufferDirect",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 8.139
+        },
+        {
+          "name": "projectObject",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 7.5200000000000005
+        },
+        {
+          "name": "updateMatrixWorld",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 6.552
+        },
+        {
+          "name": "(garbage collector)",
+          "source": "",
+          "sampledMs": 5.984
+        },
+        {
+          "name": "oe",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 5.166
+        },
+        {
+          "name": "cl",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 4.842
+        },
+        {
+          "name": "Mt",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 4.721
+        },
+        {
+          "name": "releaseStatesOfGeometry",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 4.709
+        },
+        {
+          "name": "handleContainerEffects",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 4.638
+        },
+        {
+          "name": "multiplyMatrices",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 4.593999999999999
+        },
+        {
+          "name": "shaderSource",
+          "source": "",
+          "sampledMs": 4.591
+        },
+        {
+          "name": "replaceLightNums",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 4.5809999999999995
+        },
+        {
+          "name": "compare",
+          "source": "../../node_modules/scheduler/cjs/scheduler.production.js",
+          "sampledMs": 4.253
+        },
+        {
+          "name": "detach",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 4.212
+        },
+        {
+          "name": "applyProps",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 4.053
+        },
+        {
+          "name": "So",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 3.752
+        },
+        {
+          "name": "Xc",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 3.7460000000000004
+        },
+        {
+          "name": "dispatchEvent",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 3.497
+        },
+        {
+          "name": "drawElementsInstanced",
+          "source": "",
+          "sampledMs": 3.21
+        },
+        {
+          "name": "getUniforms",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 3.177
+        },
+        {
+          "name": "applyMatrix4",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 3.157
+        }
+      ],
+      "tasks": [
+        {
+          "name": "RunTask",
+          "ms": 121.015,
+          "startFromCommitMs": 81.66799999833165,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 119.985,
+          "startFromCommitMs": 81.86999999833097,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 80.768,
+          "startFromCommitMs": 203.0829999983307,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 66.224,
+          "startFromCommitMs": 210.7639999983312,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 49.436,
+          "startFromCommitMs": 30.137999998330997,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 35.478,
+          "startFromCommitMs": -22.823000001668333,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 19.875,
+          "startFromCommitMs": -22.185000001669323,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 18.088,
+          "startFromCommitMs": 293.67299999833085,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 14.363,
+          "startFromCommitMs": 498.17999999833046,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 13.517,
+          "startFromCommitMs": 16.60499999833155,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 12.298,
+          "startFromCommitMs": 16.809999998331477,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 11.737,
+          "startFromCommitMs": 30.744999998330968,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 10.381,
+          "startFromCommitMs": 371.1229999983316,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 10.058,
+          "startFromCommitMs": 330.4529999983315,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 10.003,
+          "startFromCommitMs": 404.48799999833136,
+          "pid": 35796,
+          "tid": 37636
+        }
+      ]
+    },
+    {
+      "name": "mobile-class-warm-destination",
+      "cpuThrottle": 4,
+      "renderer": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "window": {
+        "fromCommitMs": -10,
+        "toFirstCircuitFrameMs": 300
+      },
+      "marks": [
+        {
+          "name": "scale:activation",
+          "startTime": 15877.5
+        },
+        {
+          "name": "scale:module-ready",
+          "startTime": 15893.39999999851
+        },
+        {
+          "name": "scale:camera-arrived",
+          "startTime": 20086.79999999702
+        },
+        {
+          "name": "scale:route-commit-before",
+          "startTime": 20086.89999999851
+        },
+        {
+          "name": "scale:route-commit-after",
+          "startTime": 20090.89999999851
+        },
+        {
+          "name": "scale:circuit:world-mounted",
+          "startTime": 20234.59999999404
+        },
+        {
+          "name": "scale:circuit:first-frame",
+          "startTime": 20244.39999999851
+        }
+      ],
+      "frameMs": {
+        "max": 100.10000000000218,
+        "samples": [
+          {
+            "time": 19998.7,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 20032,
+            "delta": 33.29999999999927
+          },
+          {
+            "time": 20048.6,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 20082,
+            "delta": 33.400000000001455
+          },
+          {
+            "time": 20148.6,
+            "delta": 66.59999999999854
+          },
+          {
+            "time": 20248.7,
+            "delta": 100.10000000000218
+          },
+          {
+            "time": 20265.3,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 20282,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 20298.6,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 20315.3,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 20332,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 20348.6,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 20365.3,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 20382,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 20398.7,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 20415.3,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 20431.9,
+            "delta": 16.600000000002183
+          },
+          {
+            "time": 20448.6,
+            "delta": 16.69999999999709
+          },
+          {
+            "time": 20465.3,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 20481.9,
+            "delta": 16.600000000002183
+          },
+          {
+            "time": 20498.7,
+            "delta": 16.799999999999272
+          },
+          {
+            "time": 20515.3,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 20532,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 20548.6,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 20565.2,
+            "delta": 16.600000000002183
+          },
+          {
+            "time": 20581.9,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 20598.7,
+            "delta": 16.799999999999272
+          },
+          {
+            "time": 20615.3,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 20632,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 20648.7,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 20665.3,
+            "delta": 16.599999999998545
+          },
+          {
+            "time": 20681.9,
+            "delta": 16.600000000002183
+          },
+          {
+            "time": 20698.6,
+            "delta": 16.69999999999709
+          },
+          {
+            "time": 20715.3,
+            "delta": 16.700000000000728
+          },
+          {
+            "time": 20731.9,
+            "delta": 16.600000000002183
+          }
+        ]
+      },
+      "glCalls": [],
+      "topCpu": [
+        {
+          "name": "(program)",
+          "source": "",
+          "sampledMs": 170.7699999999999
+        },
+        {
+          "name": "(idle)",
+          "source": "",
+          "sampledMs": 91.98300000000002
+        },
+        {
+          "name": "removeChild",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 25.609
+        },
+        {
+          "name": "deleteVertexArray",
+          "source": "",
+          "sampledMs": 6.553
+        },
+        {
+          "name": "intersectsObject",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 5.75
+        },
+        {
+          "name": "compare",
+          "source": "../../node_modules/scheduler/cjs/scheduler.production.js",
+          "sampledMs": 5.449999999999999
+        },
+        {
+          "name": "removeChild",
+          "source": "",
+          "sampledMs": 5.385
+        },
+        {
+          "name": "renderBufferDirect",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 5.372
+        },
+        {
+          "name": "(garbage collector)",
+          "source": "",
+          "sampledMs": 4.986000000000001
+        },
+        {
+          "name": "set",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 4.774000000000001
+        },
+        {
+          "name": "detach",
+          "source": "../../node_modules/@react-three/fiber/dist/events-e51d7528.esm.js",
+          "sampledMs": 4.7
+        },
+        {
+          "name": "setValue",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 4.197
+        },
+        {
+          "name": "ee",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 4.188
+        },
+        {
+          "name": "updateMatrixWorld",
+          "source": "../../node_modules/three/build/three.core.js",
+          "sampledMs": 4.031
+        },
+        {
+          "name": "update",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 3.51
+        },
+        {
+          "name": "setupView",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 3.487
+        },
+        {
+          "name": "mark",
+          "source": "",
+          "sampledMs": 3.406
+        },
+        {
+          "name": "onGeometryDispose",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 3.169
+        },
+        {
+          "name": "bindVertexArray",
+          "source": "",
+          "sampledMs": 3.1319999999999997
+        },
+        {
+          "name": "markUniformsLightsNeedsUpdate",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 3.059
+        },
+        {
+          "name": "drawElementsInstanced",
+          "source": "",
+          "sampledMs": 2.798
+        },
+        {
+          "name": "refreshFogUniforms",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 2.7649999999999997
+        },
+        {
+          "name": "releaseStatesOfGeometry",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 2.653
+        },
+        {
+          "name": "setValueV3f",
+          "source": "../../node_modules/three/build/three.module.js",
+          "sampledMs": 2.6310000000000002
+        },
+        {
+          "name": "(anonymous)",
+          "source": "../../src/circuit/Controller.tsx",
+          "sampledMs": 2.418
+        }
+      ],
+      "tasks": [
+        {
+          "name": "RunTask",
+          "ms": 82.09,
+          "startFromCommitMs": 67.56700000149067,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 81.22,
+          "startFromCommitMs": 67.60400000149093,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 34.652,
+          "startFromCommitMs": 30.878000001488545,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 32.31,
+          "startFromCommitMs": -22.527999998510495,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 20.197,
+          "startFromCommitMs": -21.89099999851169,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 19.305,
+          "startFromCommitMs": 149.67400000149064,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 17.139,
+          "startFromCommitMs": 13.731000001491338,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 15.933,
+          "startFromCommitMs": 14.120000001490553,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "FunctionCall",
+          "ms": 11.024,
+          "startFromCommitMs": 31.67900000149166,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 10.986,
+          "startFromCommitMs": 175.87500000149157,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 9.933,
+          "startFromCommitMs": 346.0180000014916,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 9.909,
+          "startFromCommitMs": 379.18900000149006,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 9.413,
+          "startFromCommitMs": 193.73000000149113,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 8.819,
+          "startFromCommitMs": 295.37200000149096,
+          "pid": 35796,
+          "tid": 37636
+        },
+        {
+          "name": "RunTask",
+          "ms": 8.335,
+          "startFromCommitMs": 428.9130000014884,
+          "pid": 35796,
+          "tid": 37636
+        }
+      ]
+    }
+  ]
+}
