@@ -16,6 +16,14 @@ import {
 } from "../src/circuit/traversal";
 import { CIRCUIT_ENTRY } from "../src/pi/layout";
 describe("PCB traversal acceptance", () => {
+  it("slows the notebook reveal instead of cruising past it", () => {
+    const s = createTravel("bookmark");
+    s.distance = paths.notebook.length - 7;
+    s.target = paths.notebook.length;
+    s.speed = 4;
+    advanceTravel(s, 0.016, false);
+    expect(s.speed).toBeLessThanOrEqual(4);
+  });
   it("certifies the complete rounded paths for a swept upright body", () => {
     for (const path of Object.values(paths))
       for (let i = 1; i < path.samples.length; i++)

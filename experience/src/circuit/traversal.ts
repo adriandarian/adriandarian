@@ -250,7 +250,13 @@ export function advanceTravel(s: Travel, dt: number, reduced: boolean) {
   dt = Math.min(0.05, Math.max(0, dt));
   const delta = s.target - s.distance,
     direction = Math.sign(delta),
-    desired = direction * Math.min(18, Math.sqrt(2 * 32 * Math.abs(delta)));
+    // Cruise through the long detour, then slow before the reveal corridor.
+    // The final eight units are inspected at <=4 units/s, not swept past at 18.
+    pace = Math.min(
+      18,
+      4 + Math.max(0, paths[s.branch].length - s.distance - 8) * 2,
+    ),
+    desired = direction * Math.min(pace, Math.sqrt(2 * 32 * Math.abs(delta)));
   s.speed += Math.max(-32 * dt, Math.min(32 * dt, desired - s.speed));
   const move = s.speed * dt;
   if (

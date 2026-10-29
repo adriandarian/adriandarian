@@ -103,8 +103,16 @@ export function Workshop() {
           emissive={lab.pulse && lab.gate ? "#68dbc6" : undefined}
         />
       </group>
-      <mesh position={[23, 0.4, -4]}>
-        <boxGeometry args={[14, 0.04, 0.12]} />
+      <mesh position={[25, 0.4, -4]}>
+        <boxGeometry args={[10, 0.04, 0.12]} />
+        <meshStandardMaterial
+          color="#68dbc6"
+          emissive="#68dbc6"
+          emissiveIntensity={1.2}
+        />
+      </mesh>
+      <mesh position={[18, 0.4, -5.5]} rotation={[0, Math.atan2(4, 3), 0]}>
+        <boxGeometry args={[0.12, 0.04, 5]} />
         <meshStandardMaterial
           color="#68dbc6"
           emissive="#68dbc6"
