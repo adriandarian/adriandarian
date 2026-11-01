@@ -1,0 +1,144 @@
+{
+  "method": "Actual DOM, keyboard and physical-mesh inputs; video recording separate from performance traces",
+  "renderer": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "workshopMs": 4648,
+  "optionalDetourFromJunctionMs": 11583,
+  "entry": {
+    "world": "circuit",
+    "entry": "board",
+    "background": "071e23",
+    "geometries": 53,
+    "calls": 30,
+    "triangles": 7704,
+    "textures": 0,
+    "withinBudget": true,
+    "children": 2,
+    "frameMs": {
+      "median": 16.700000002980232,
+      "p95": 17.700000002980232
+    },
+    "renderer": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "dpr": 1,
+    "camera": {
+      "position": [
+        0,
+        1.7999999999999998,
+        10.000000000000004
+      ],
+      "direction": [
+        0,
+        -0.029986509105671005,
+        -0.9995503035223667
+      ],
+      "fov": 58,
+      "near": 0.01
+    },
+    "targets": {
+      "gate": {
+        "x": 944.8081541389054,
+        "y": 347.7768863135525,
+        "inFrustum": true
+      },
+      "branch": {
+        "x": 965.3706089816092,
+        "y": 347.7768863135525,
+        "inFrustum": true
+      },
+      "send": {
+        "x": 985.9330638243132,
+        "y": 347.7768863135525,
+        "inFrustum": true
+      },
+      "notebook": {
+        "x": 3947.1385749952606,
+        "y": 344.94748038501973,
+        "inFrustum": false
+      }
+    },
+    "model": {
+      "uuid": "d6f871d9-db61-4aed-9d78-9e7f9e12f8a4",
+      "calls": 36,
+      "triangles": 14016,
+      "withinBudget": true
+    }
+  },
+  "notebook": {
+    "world": "circuit",
+    "entry": "board",
+    "background": "071e23",
+    "geometries": 62,
+    "calls": 18,
+    "triangles": 4012,
+    "textures": 0,
+    "withinBudget": true,
+    "children": 2,
+    "frameMs": {
+      "median": 16.700000002980232,
+      "p95": 17.799999997019768
+    },
+    "renderer": "ANGLE (AMD, AMD Radeon RX 6950 XT (0x000073A5) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "dpr": 1,
+    "camera": {
+      "position": [
+        98,
+        2.6,
+        -13
+      ],
+      "direction": [
+        0.995453783255585,
+        -0.06780098378782465,
+        0.06689388611484565
+      ],
+      "fov": 58,
+      "near": 0.01
+    },
+    "targets": {
+      "gate": {
+        "x": 625.6346148032957,
+        "y": 307.459417260659,
+        "inFrustum": false
+      },
+      "branch": {
+        "x": 625.9293121412536,
+        "y": 307.3751109118018,
+        "inFrustum": false
+      },
+      "send": {
+        "x": 626.2299818540765,
+        "y": 307.2890959994321,
+        "inFrustum": false
+      },
+      "notebook": {
+        "x": 642.7273157014463,
+        "y": 359.8241733616026,
+        "inFrustum": true
+      }
+    },
+    "model": {
+      "uuid": "d6f871d9-db61-4aed-9d78-9e7f9e12f8a4",
+      "calls": 36,
+      "triangles": 14016,
+      "withinBudget": true
+    }
+  },
+  "restored": {
+    "branch": "notebook",
+    "distance": 190.78347996606976,
+    "heading": 0,
+    "target": 190.78347996606976,
+    "speed": 0,
+    "pending": null,
+    "length": 190.78347996606976,
+    "position": [
+      98,
+      2.6,
+      -13
+    ],
+    "targetPoint": [
+      112,
+      1.65,
+      -12
+    ]
+  },
+  "physicalPhone": false
+}
