@@ -72,3 +72,9 @@ See the [paired performance review](phase3-performance/README.md), [actual visit
 - Test a physical low-power/mobile device for pacing, input comfort, sustained frame timing and memory before making a seamless-mobile claim.
 
 This PR requests review only. It does not authorize merging, production deployment, Phase 3B/3C, or the later material/effect expansion.
+
+## Navigation review corrections
+
+The PR review identified two initialization/selection defects. Both circuit progress references now initialize from the restored checkpoint, including a full production-page reload. Reselecting the active trace during a pending return stops that return and clears its queued destination; a later movement command remains usable.
+
+Three browser regressions cover saved-position reloads on both circuit hash entries and changing one's mind during a return to the junction. Post-correction validation reruns the original 27 unit cases and all 20 browser scenarios (the previous 17 plus these three), production build, clearance certificate and existing resource-lifecycle scenarios. The design, geometry, captured footage and GPU performance evidence remain unchanged; the earlier validation table records the initial implementation results.

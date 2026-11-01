@@ -11,6 +11,90 @@ async function ready(page: Page) {
   );
   await page.locator(".branch-controls summary").click();
 }
+for (const [entry, branch, distance] of [
+  ["board", "workshop", 30],
+  ["bookmark", "notebook", 100],
+] as const) {
+  test(`reload preserves saved ${branch} travel on ${entry} entry`, async ({
+    page,
+  }) => {
+    await page.goto(`/#/circuit/${entry}`);
+    await expect(page.locator("html")).toHaveAttribute(
+      "data-world-ready",
+      `circuit/${entry}`,
+    );
+    await page.evaluate(
+      ({ branch, distance }) =>
+        history.replaceState(
+          { circuitTravel: { branch, distance, heading: 0.2 } },
+          "",
+        ),
+      { branch, distance },
+    );
+    await page.reload();
+    await expect(page.locator("html")).toHaveAttribute(
+      "data-world-ready",
+      `circuit/${entry}`,
+    );
+    const restored = await travel(page);
+    expect(restored.branch).toBe(branch);
+    expect(restored.distance).toBeCloseTo(distance, 5);
+    expect(restored.target).toBeCloseTo(distance, 5);
+    expect(restored.speed).toBe(0);
+    await expect(
+      page.getByRole("button", { name: "Move backward", exact: true }),
+    ).toBeEnabled();
+    await page.waitForTimeout(800);
+    expect((await travel(page)).distance).toBeCloseTo(distance, 5);
+    expect(
+      await page
+        .locator(".movement b")
+        .evaluate((el) => parseFloat((el as HTMLElement).style.width)),
+    ).toBeCloseTo((distance / restored.length) * 100, 2);
+  });
+}
+test("reselecting workshop cancels the pending notebook return", async ({
+  page,
+}) => {
+  await ready(page);
+  await page.evaluate(() =>
+    history.replaceState(
+      { circuitTravel: { branch: "workshop", distance: 35, heading: 0 } },
+      "",
+    ),
+  );
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-world-ready",
+    "circuit/board",
+  );
+  await page.locator(".branch-controls summary").click();
+  await page
+    .getByRole("button", { name: "Connector detour", exact: true })
+    .click();
+  await expect.poll(async () => (await travel(page)).pending).toBe("notebook");
+  await page
+    .getByRole("button", { name: "Workshop trace", exact: true })
+    .click();
+  await expect.poll(async () => (await travel(page)).pending).toBeNull();
+  await expect.poll(async () => (await travel(page)).speed).toBe(0);
+  const stopped = await travel(page);
+  await page.waitForTimeout(800);
+  expect((await travel(page)).distance).toBeCloseTo(stopped.distance, 5);
+  expect((await travel(page)).branch).toBe("workshop");
+  await page.locator(".scene").focus();
+  await page.keyboard.press("End");
+  await expect
+    .poll(
+      async () => {
+        const s = await travel(page);
+        return s.length - s.distance;
+      },
+      { timeout: 15000 },
+    )
+    .toBeLessThan(0.02);
+  expect((await travel(page)).branch).toBe("workshop");
+});
 test("workshop is independently reachable, physical controls work, and cancellation stops a branch return", async ({
   page,
 }) => {

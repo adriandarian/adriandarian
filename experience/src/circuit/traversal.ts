@@ -236,7 +236,10 @@ export function stopTravel(s: Travel) {
 }
 export function selectBranch(s: Travel, branch: Branch) {
   s.stopped = false;
-  if (s.branch === branch) return;
+  if (s.branch === branch) {
+    if (s.pending) stopTravel(s);
+    return;
+  }
   if (s.distance <= junction + 0.001) {
     s.branch = branch;
     s.target = s.distance;

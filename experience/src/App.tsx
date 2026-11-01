@@ -113,16 +113,20 @@ function App() {
   const reducedMotion = useReducedMotion();
   const world = worlds[route.world];
   const entryProgress = world.entries[route.entry] ?? 0;
-  const [progressDisplay, setProgressDisplay] = useState(entryProgress);
-  const progress = useRef(entryProgress);
+  const circuit = useRef(
+    restoreTravel(history.state?.circuitTravel, route.entry),
+  );
+  const initialProgress =
+    route.world === "circuit"
+      ? circuit.current.distance / paths[circuit.current.branch].length
+      : entryProgress;
+  const [progressDisplay, setProgressDisplay] = useState(initialProgress);
+  const progress = useRef(initialProgress);
   const journey = useRef<Journey | null>(null);
   const lease = useRef(new JourneyLease());
   const handoff = useRef(false);
   const steer = useRef(0);
   const inspection = useRef(false);
-  const circuit = useRef(
-    restoreTravel(history.state?.circuitTravel, route.entry),
-  );
   const currentWorld = useRef(route.world);
   currentWorld.current = route.world;
   const circuitStatus = useRef<HTMLElement>(null);
